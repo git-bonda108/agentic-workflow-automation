@@ -1,0 +1,9 @@
+# Railway/Nixpacks: build and run the Vite React app from demo-app/
+[phases.install]
+cmds = ["npm ci"]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "npm start"

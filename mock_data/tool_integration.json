@@ -1,0 +1,102 @@
+{
+  "source": "DFM reference + MCP availability; GIFs from proposal_contract/GIFs",
+  "gif_base_path": "/gifs",
+  "tools": {
+    "CD-1": {
+      "integration_type": "MCP + API",
+      "tools_or_services": ["YouTube / ViewStats / 1of10 (retention data)", "Notion", "Claude / internal model"],
+      "description": "Agent uses retention/analytics APIs or MCP for curve calibration; script input via Notion or chat. Output: retention curve, flags, suggestions. MCP: optional Notion MCP for script context.",
+      "gif_id": "cd_agent_flow_animated"
+    },
+    "CD-2": {
+      "integration_type": "MCP + API",
+      "tools_or_services": ["YouTube Data API", "ViewStats", "Slack"],
+      "description": "Agent or scheduled job fetches competitor data (YouTube API or ViewStats); aggregates outliers; Slack MCP or webhook for digest. Multiple tools bound: data source + Slack.",
+      "gif_id": "cd_agent_flow_animated"
+    },
+    "CD-3": {
+      "integration_type": "MCP + API",
+      "tools_or_services": ["Vision model (thumbnail)", "Google Trends / SEO API", "Slack"],
+      "description": "Thumbnail + title → vision + search APIs; Slack MCP for command response. Agent: reasoning → score + thumbnail text candidates.",
+      "gif_id": "cd_agent_flow_animated"
+    },
+    "CD-4": {
+      "integration_type": "MCP + API",
+      "tools_or_services": ["YouTube Data API", "ViewStats", "Slack"],
+      "description": "Monitor competitor channels; detect title/thumbnail/description changes; compute performance delta; Slack MCP for alerts. Multiple tools: YouTube + Slack.",
+      "gif_id": "cd_agent_flow_animated"
+    },
+    "CD-5": {
+      "integration_type": "API",
+      "tools_or_services": ["Vision model", "Slack"],
+      "description": "Slack command → title + thumbnail → vision API → score + roast. Slack MCP or incoming webhook for response.",
+      "gif_id": "cd_agent_flow_animated"
+    },
+    "CD-6": {
+      "integration_type": "MCP + API",
+      "tools_or_services": ["Claude Projects", "Notion", "Slack"],
+      "description": "Per-client Claude Project or Notion KB; agent has context via MCP (Notion) or Claude Project. Query → on-brand suggestions.",
+      "gif_id": "cd_agent_flow_animated"
+    },
+    "CD-7": {
+      "integration_type": "API",
+      "tools_or_services": ["LLM (voice matching)", "Notion / script storage"],
+      "description": "Draft script + voice examples → LLM; output rewritten script. Notion MCP for read/write scripts.",
+      "gif_id": "cd_agent_flow_animated"
+    },
+    "CD-8": {
+      "integration_type": "MCP",
+      "tools_or_services": ["Slack", "Predictive model API"],
+      "description": "Slack MCP: receive message (title/hook) → call predictive scoring API → respond in thread. Agent or serverless function.",
+      "gif_id": "cd_agent_flow_animated"
+    },
+    "CD-9": {
+      "integration_type": "MCP + API",
+      "tools_or_services": ["YouTube / ViewStats", "Notion or internal dashboard"],
+      "description": "Per-client outlier aggregation; dashboard or Notion MCP for display. Data from YouTube/ViewStats API.",
+      "gif_id": "cd_agent_flow_animated"
+    },
+    "ED-1": {
+      "integration_type": "MCP + API",
+      "tools_or_services": ["Frame.io API", "Sentiment model", "Slack"],
+      "description": "Frame.io API (or custom MCP) for comments; sentiment analysis; Slack MCP for alerts when below threshold. Multiple tools: Frame.io + Slack.",
+      "gif_id": "ppm_ed_flow_animated"
+    },
+    "ED-2": {
+      "integration_type": "API",
+      "tools_or_services": ["Video QC service (internal or 3rd party)", "ClickUp / Notion (checklist)"],
+      "description": "Video file + checklist (from ClickUp/Notion MCP or API) → QC service → timestamped report. ClickUp MCP for checklist fetch.",
+      "gif_id": "ppm_ed_flow_animated"
+    },
+    "ED-3": {
+      "integration_type": "MCP + API",
+      "tools_or_services": ["ClickUp", "Internal availability/skill store"],
+      "description": "Agent: ClickUp MCP (list_tasks, get_assignees) + availability/skill data → suggested assignees; HITL confirm; ClickUp MCP update_task for assignment.",
+      "gif_id": "ed3_capacity_react_hitl"
+    },
+    "PR-1": {
+      "integration_type": "API",
+      "tools_or_services": ["Internal calculator or Make/n8n", "ClickUp"],
+      "description": "Inputs (content type, deliverables, complexity) → schedule logic; output to ClickUp via API or ClickUp MCP (create tasks, set dates).",
+      "gif_id": "producer_agent_flow_animated"
+    },
+    "PR-2": {
+      "integration_type": "MCP + API",
+      "tools_or_services": ["Slack", "Email (e.g. Gmail API)", "Frame.io", "Sentiment model"],
+      "description": "Agent has Slack MCP, email API, Frame.io API; aggregates client comms → sentiment profile; flags to Producer. Multiple tools bound in one agent.",
+      "gif_id": "producer_agent_flow_animated"
+    },
+    "PR-3": {
+      "integration_type": "MCP",
+      "tools_or_services": ["Slack", "ClickUp or Notion (variables)"],
+      "description": "Slack MCP + template engine; variables from ClickUp/Notion MCP (client, project). Workflow Builder or bot trigger.",
+      "gif_id": "producer_agent_flow_animated"
+    },
+    "PR-4": {
+      "integration_type": "MCP",
+      "tools_or_services": ["ClickUp", "Slack (optional trigger)"],
+      "description": "Natural language → Agent (OpenAI Agents SDK) → ClickUp MCP (create_task, list_lists, get_custom_fields); HITL confirm; task created. Slack MCP optional for trigger.",
+      "gif_id": "pr4_tool_use_react"
+    }
+  }
+}

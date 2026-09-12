@@ -1,0 +1,170 @@
+{
+  "_meta": {
+    "source": "clickup_mcp",
+    "tool": "get_workspace",
+    "mode": "mock",
+    "description": "DFM ClickUp workspace structure \u2014 Business Plus Plan, 104 members"
+  },
+  "workspace": {
+    "id": "9012345678",
+    "name": "Dragonfruit",
+    "plan": "business_plus",
+    "members_count": 104,
+    "color": "#FF6B35"
+  },
+  "spaces": [
+    {
+      "id": "sp_901001",
+      "name": "\ud83e\udd6d Mango Pod",
+      "statuses": [
+        "Open",
+        "In Progress",
+        "Review",
+        "Approved",
+        "Published"
+      ],
+      "members": [
+        {
+          "id": "u_101",
+          "username": "producer.a",
+          "email": "producer.a@example.com",
+          "role": "Producer"
+        },
+        {
+          "id": "u_201",
+          "username": "cd.a",
+          "email": "cd.a@example.com",
+          "role": "Creative Director"
+        },
+        {
+          "id": "u_301",
+          "username": "ppm.a",
+          "email": "ppm.a@example.com",
+          "role": "Post-Production Manager"
+        },
+        {
+          "id": "u_401",
+          "username": "pc.a",
+          "email": "pc.a@example.com",
+          "role": "Production Coordinator"
+        },
+        {
+          "id": "u_501",
+          "username": "editor.a",
+          "email": "ops.a@example.com",
+          "role": "Editor"
+        },
+        {
+          "id": "u_502",
+          "username": "editor.b",
+          "email": "ops.b@example.com",
+          "role": "Editor"
+        }
+      ],
+      "lists": [
+        {
+          "id": "li_100101",
+          "name": "Batch 14 \u2014 Longform",
+          "task_count": 8
+        },
+        {
+          "id": "li_100102",
+          "name": "Batch 14 \u2014 Shortform",
+          "task_count": 12
+        },
+        {
+          "id": "li_100103",
+          "name": "Batch 13 \u2014 Longform (Complete)",
+          "task_count": 8
+        }
+      ]
+    },
+    {
+      "id": "sp_901002",
+      "name": "\ud83c\udf4b Lemon Pod",
+      "statuses": [
+        "Open",
+        "In Progress",
+        "Review",
+        "Approved",
+        "Published"
+      ],
+      "members": [
+        {
+          "id": "u_102",
+          "username": "producer.b",
+          "email": "producer.b@example.com",
+          "role": "Producer"
+        },
+        {
+          "id": "u_202",
+          "username": "cd.b",
+          "email": "cd.b@example.com",
+          "role": "Creative Director"
+        },
+        {
+          "id": "u_302",
+          "username": "ppm.b",
+          "email": "ppm.b@example.com",
+          "role": "Post-Production Manager"
+        },
+        {
+          "id": "u_402",
+          "username": "pc.b",
+          "email": "pc.b@example.com",
+          "role": "Production Coordinator"
+        },
+        {
+          "id": "u_503",
+          "username": "editor.c",
+          "email": "ops.d@example.com",
+          "role": "Editor"
+        },
+        {
+          "id": "u_504",
+          "username": "editor.d",
+          "email": "ops.e@example.com",
+          "role": "Editor"
+        }
+      ],
+      "lists": [
+        {
+          "id": "li_100201",
+          "name": "Batch 11 \u2014 Longform",
+          "task_count": 6
+        },
+        {
+          "id": "li_100202",
+          "name": "Batch 11 \u2014 Shortform",
+          "task_count": 10
+        }
+      ]
+    }
+  ],
+  "leadership": [
+    {
+      "id": "u_001",
+      "username": "exec.a",
+      "email": "exec.a@example.com",
+      "role": "CEO"
+    },
+    {
+      "id": "u_002",
+      "username": "exec.b",
+      "email": "exec.b@example.com",
+      "role": "Leadership"
+    },
+    {
+      "id": "u_003",
+      "username": "exec.c",
+      "email": "exec.c@example.com",
+      "role": "Leadership"
+    },
+    {
+      "id": "u_004",
+      "username": "ecd.a",
+      "email": "ecd.a@example.com",
+      "role": "ECD"
+    }
+  ]
+}

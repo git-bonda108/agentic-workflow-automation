@@ -1,0 +1,208 @@
+.trajectory-page {
+  animation: fadeIn 0.3s ease;
+}
+
+.trajectory-breadcrumb {
+  font-family: var(--df-font);
+  font-size: var(--df-small);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--df-text);
+  margin-bottom: 1rem;
+}
+
+.trajectory-breadcrumb a {
+  color: var(--df-accent);
+}
+
+.trajectory-breadcrumb a:focus-visible {
+  outline: 2px solid var(--df-accent);
+  outline-offset: 2px;
+}
+
+.trajectory-title {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.trajectory-subtitle {
+  font-family: var(--df-font);
+  font-size: var(--df-body);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--df-text);
+  margin: 0 0 1.5rem 0;
+  line-height: var(--df-line-height);
+}
+
+.trajectory-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .trajectory-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.trajectory-sidebar {
+  background: var(--df-surface);
+  border: 1px solid var(--df-border);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: var(--df-shadow);
+  position: sticky;
+  top: 1rem;
+}
+
+.trajectory-sidebar-title {
+  font-family: var(--df-font-heading);
+  font-size: var(--df-h3);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--df-label);
+  margin: 0 0 0.75rem 0;
+  line-height: var(--df-line-height);
+}
+
+.trajectory-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.trajectory-list li {
+  margin-bottom: 0.25rem;
+}
+
+.trajectory-list-btn {
+  font-family: var(--df-font);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--df-label);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trajectory-list-btn:hover {
+  background: var(--df-panel);
+  border-color: var(--df-border);
+}
+
+.trajectory-list-btn.active {
+  background: var(--df-accent);
+  color: #FFFFFF;
+  border-color: var(--df-accent);
+}
+
+.trajectory-list-btn:focus-visible {
+  outline: 2px solid var(--df-accent);
+  outline-offset: 2px;
+}
+
+.trajectory-list-title {
+  font-family: var(--df-font);
+  display: block;
+  font-size: var(--df-label-size);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trajectory-list-desc {
+  font-family: var(--df-font);
+  display: block;
+  font-size: var(--df-label-size);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  opacity: 0.9;
+  margin-top: 0.15rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.trajectory-list-btn.active .trajectory-list-desc {
+  opacity: 0.85;
+}
+
+.trajectory-viewer {
+  background: var(--df-surface);
+  border: 1px solid var(--df-border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  box-shadow: var(--df-shadow);
+}
+
+.trajectory-viewer-title {
+  font-family: var(--df-font);
+  font-size: var(--df-h3);
+  font-weight: 700;
+  color: var(--df-label);
+  margin: 0 0 0.25rem 0;
+  letter-spacing: 0.02em;
+}
+
+.trajectory-viewer-desc {
+  font-family: var(--df-font);
+  font-size: var(--df-small);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--df-text);
+  margin: 0 0 1rem 0;
+}
+
+.trajectory-gif-wrap {
+  background: var(--df-panel);
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 320px;
+}
+
+.trajectory-gif-wrap iframe {
+  width: 100%;
+  height: 480px;
+  border: 0;
+}
+
+.trajectory-placeholder {
+  font-family: var(--df-font);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--df-text);
+  font-size: var(--df-body);
+}
+
+.trajectory-back {
+  font-family: var(--df-font);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--df-accent);
+  text-decoration: none;
+}
+
+.trajectory-back:hover {
+  color: var(--df-accent-hover);
+}
+
+.trajectory-back:focus-visible {
+  outline: 2px solid var(--df-accent);
+  outline-offset: 2px;
+}

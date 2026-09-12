@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dragonfruit — PPM / ED Flow (Animated)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --df-bg: #FAFAFA;
+      --df-surface: #FFFFFF;
+      --df-text: #1a1a1a;
+      --df-muted: #64748B;
+      --df-accent: #FF3B2E;
+      --df-accent-hover: #E53935;
+      --df-success: #0d9488;
+      --df-border: #E2E8F0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: 'Inter', Helvetica, sans-serif;
+      background: #000;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; margin: 0 0 4px 0; }
+    .subtitle { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.4rem; color: #94a3b8; margin-bottom: 24px; max-width: 920px; overflow-wrap: break-word; }
+    .flow-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 920px;
+      overflow: hidden;
+    }
+    .step {
+      background: #111;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      padding: 14px 18px;
+      min-width: 160px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .step.agent { border-color: var(--df-success); background: #0f172a; animation: glow-ed 2.5s ease-in-out infinite; }
+    .step.tool { border-color: var(--df-success); background: #0f172a; }
+    @keyframes glow-ed {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(13,148,136,0); }
+      50% { box-shadow: 0 0 12px rgba(13,148,136,0.3); }
+    }
+    .step-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.38rem; font-weight: 400; text-transform: none; letter-spacing: 0.06em; color: #94a3b8; margin-bottom: 4px; }
+    .step-title { font-family: 'Bebas Neue', sans-serif; font-size: 0.45rem; font-weight: 400; color: #e2e8f0; margin-bottom: 4px; word-break: break-word; }
+    .step-detail { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.38rem; color: #94a3b8; overflow-wrap: break-word; max-width: 100%; overflow: hidden; line-height: 1.25; }
+    .hitl { font-size: 0.38rem; color: #FCA5A5; font-weight: 600; margin-top: 4px; }
+    .arrow {
+      width: 44px;
+      height: 24px;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .arrow::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 32px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--df-success), transparent);
+      transform: translateY(-50%);
+      animation: arrow-flow 1.5s ease-in-out infinite;
+    }
+    .arrow .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--df-success);
+      box-shadow: 0 0 8px rgba(13,148,136,0.5);
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      animation: dot-run 1.8s ease-in-out infinite;
+    }
+    @keyframes arrow-flow {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    @keyframes dot-run {
+      0% { left: 0; opacity: 1; }
+      100% { left: 28px; opacity: 0.2; }
+    }
+    .io { font-size: 0.45rem; margin-top: 6px; }
+    .io-in { color: var(--df-muted); }
+    .io-out { color: var(--df-success); }
+    .caption { font-size: 0.5rem; color: var(--df-muted); margin-top: 20px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>PPM / Editor Flow — Quality & Assignment</h1>
+  <p class="subtitle">Frame.io → Sentiment (ED-1) → QC report (ED-2) → Capacity assign (ED-3) · HITL at assign</p>
+
+  <div class="flow-row">
+    <div class="step tool">
+      <div class="step-label">Input</div>
+      <div class="step-title">Frame.io</div>
+      <div class="step-detail">Comments, review threads</div>
+      <div class="io io-in">In: Frame.io API</div>
+    </div>
+    <div class="arrow"><div class="dot"></div></div>
+    <div class="step agent">
+      <div class="step-label">ED-1</div>
+      <div class="step-title">Sentiment Analyzer</div>
+      <div class="step-detail">Video + client sentiment score</div>
+      <div class="io io-out">Out: score, alert if &lt; threshold</div>
+    </div>
+    <div class="arrow"><div class="dot"></div></div>
+    <div class="step agent">
+      <div class="step-label">ED-2</div>
+      <div class="step-title">Automated QC</div>
+      <div class="step-detail">Video vs checklist → report</div>
+      <div class="io io-out">Out: timestamped QC report</div>
+    </div>
+    <div class="arrow"><div class="dot"></div></div>
+    <div class="step agent">
+      <div class="step-label">ED-3</div>
+      <div class="step-title">Capacity Assignment</div>
+      <div class="step-detail">ClickUp + workload → assignees</div>
+      <div class="hitl">HITL: confirm assignee</div>
+      <div class="io io-out">Out: suggested assignees</div>
+    </div>
+  </div>
+
+  <p class="caption">PPM Agent: Frame.io sentiment, automated QC, capacity-based assignment. Human confirms before assign.</p>
+</body>
+</html>

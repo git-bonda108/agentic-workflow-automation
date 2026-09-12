@@ -1,0 +1,41 @@
+{
+  "current_clients_per_pod": 4,
+  "target_clients_per_pod_eoy2026": 7,
+  "pods": [
+    {
+      "id": "mango",
+      "name": "Mango Pod",
+      "producer": "Producer A",
+      "creative_director": "CD A",
+      "production_coordinator": "YPC A",
+      "post_production_manager": "PPM A",
+      "editors_count": 11,
+      "clients": [
+        {"id": "C1", "name": "Client Alpha", "type": "longform", "videos_per_month": 4},
+        {"id": "C2", "name": "Client Beta", "type": "longform", "videos_per_month": 4},
+        {"id": "C3", "name": "Client Gamma", "type": "shortform", "videos_per_month": 20},
+        {"id": "C4", "name": "Client Delta", "type": "mixed", "videos_per_month": 8}
+      ]
+    },
+    {
+      "id": "lemon",
+      "name": "Lemon Pod",
+      "producer": "Producer B",
+      "creative_director": "CD B",
+      "production_coordinator": "YPC B",
+      "post_production_manager": "PPM B",
+      "editors_count": 10,
+      "clients": [
+        {"id": "C5", "name": "Client Epsilon", "type": "longform", "videos_per_month": 4},
+        {"id": "C6", "name": "Client Zeta", "type": "longform", "videos_per_month": 4},
+        {"id": "C7", "name": "Client Eta", "type": "shortform", "videos_per_month": 15},
+        {"id": "C8", "name": "Client Theta", "type": "mixed", "videos_per_month": 6}
+      ]
+    }
+  ],
+  "shared_roles": [
+    {"role": "Script Writer", "count": 2},
+    {"role": "Thumbnail Designer", "count": 2},
+    {"role": "Data Analyst", "count": 2}
+  ]
+}

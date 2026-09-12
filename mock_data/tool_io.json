@@ -1,0 +1,174 @@
+{
+  "source": "DFM AI Tool Wish List — Consultant Brief (DOCX); input/output from brief",
+  "tools": {
+    "CD-1": {
+      "input": [
+        "Script text (full script)",
+        "Outlier script data (for calibration)",
+        "Channel context (format, audience)",
+        "Video format (shortform / longform)"
+      ],
+      "output": [
+        "Predicted retention curve (similar to YouTube Analytics)",
+        "Drop-off risk flags with timestamps",
+        "Improvement suggestions including opening hook with rationale"
+      ]
+    },
+    "CD-2": {
+      "input": [
+        "List of ~20 competitor channel URLs per client"
+      ],
+      "output": [
+        "Weekly digest of outlier videos",
+        "Analysis of why they outperformed (theme, format, timing)",
+        "Categorized by theme, format, and timing patterns",
+        "Delivered via Slack (configurable)"
+      ]
+    },
+    "CD-3": {
+      "input": [
+        "Title + thumbnail image (or script snippet)",
+        "Optional: channel-level shelf context"
+      ],
+      "output": [
+        "Score and critique (e.g. Slack command response)",
+        "Thumbnail text candidates from script (curiosity-gap phrases)",
+        "Cross-reference with Google Trends/SEO for search demand",
+        "Channel-level shelf strategy notes"
+      ]
+    },
+    "CD-4": {
+      "input": [
+        "Competitor list / config (channels to monitor)"
+      ],
+      "output": [
+        "Detected title/thumbnail/description changes",
+        "Performance delta (CTR, retention, etc.)",
+        "Slack alerts to CD with before/after and delta"
+      ]
+    },
+    "CD-5": {
+      "input": [
+        "Title + thumbnail image"
+      ],
+      "output": [
+        "Score (e.g. 1–10)",
+        "Roast-style feedback (Slack command)"
+      ]
+    },
+    "CD-6": {
+      "input": [
+        "Conversational query (per client workspace)",
+        "Context: brand voice, past scripts, performance data, style guides"
+      ],
+      "output": [
+        "On-brand suggestions",
+        "Reference to past decisions",
+        "Consistent ideation (Claude Project or Notion/Slack-integrated bot)"
+      ]
+    },
+    "CD-7": {
+      "input": [
+        "Draft script",
+        "Client voice examples (previous scripts, cadence, vocabulary)"
+      ],
+      "output": [
+        "Rewritten script matching client voice and delivery style"
+      ]
+    },
+    "CD-8": {
+      "input": [
+        "Title or hook (e.g. posted in Slack)"
+      ],
+      "output": [
+        "Instant predictive score (1–10)",
+        "Slack response"
+      ]
+    },
+    "CD-9": {
+      "input": [
+        "Client ID or niche config"
+      ],
+      "output": [
+        "Per-client dashboard of outlier content in their niche"
+      ]
+    },
+    "ED-1": {
+      "input": [
+        "Frame.io comments (per video asset and/or per client)"
+      ],
+      "output": [
+        "Video-level sentiment summary (tone, satisfaction)",
+        "Client-level sentiment trend over time",
+        "Alert when sentiment drops below threshold (Slack or dashboard)"
+      ]
+    },
+    "ED-2": {
+      "input": [
+        "Rendered video export",
+        "Client-specific QC checklist (intro/outro, lower-third, audio, color, b-roll, captions, export settings)"
+      ],
+      "output": [
+        "Timestamped error report",
+        "Severity per violation",
+        "Reduces manual QC burden and revision cycles"
+      ]
+    },
+    "ED-3": {
+      "input": [
+        "ClickUp tasks (incoming editing tasks)",
+        "Editor availability / workload data",
+        "Skill match (shortform vs longform)",
+        "Pod assignment"
+      ],
+      "output": [
+        "Suggested assignees with rationale",
+        "Human confirms before assignment (HITL)"
+      ]
+    },
+    "PR-1": {
+      "input": [
+        "Content type (shortform / longform)",
+        "Number of deliverables",
+        "Complexity tier",
+        "Client review turnaround expectations",
+        "Current pod capacity"
+      ],
+      "output": [
+        "Proposed schedule with milestone dates",
+        "Buffer windows"
+      ]
+    },
+    "PR-2": {
+      "input": [
+        "Slack messages, email threads, Frame.io comments (client-facing)"
+      ],
+      "output": [
+        "Running sentiment profile per client",
+        "Flags: shifts in tone, emerging frustrations, positive signals",
+        "Privacy and data handling per scope"
+      ]
+    },
+    "PR-3": {
+      "input": [
+        "Template key (kickoff, status, revision, reminder, check-in)",
+        "Client/project variables (auto-fill)"
+      ],
+      "output": [
+        "Templated Slack message with placeholders filled",
+        "Optional: Slack Workflow Builder or bot trigger on schedule"
+      ]
+    },
+    "PR-4": {
+      "input": [
+        "Natural language command (e.g. via Slack or chat)",
+        "Example: \"Create task for Mango Pod, longform edit for Client Alpha, due Friday, assign to Editor 1\""
+      ],
+      "output": [
+        "Proposed ClickUp task (list, name, due date, assignee, fields, tags)",
+        "Human-in-the-loop confirm before create",
+        "Task created in ClickUp after confirm"
+      ]
+    }
+  }
+}

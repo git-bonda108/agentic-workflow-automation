@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multi-Agent Handoffs — Producer as Orchestrator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --df-accent: #FF3B2E; --df-accent-hover: #E53935; --df-muted: #64748B; --df-border: #E2E8F0; --df-text: #1a1a1a; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 20px; font-family: 'Inter', Helvetica, sans-serif; background: #000; color: #e2e8f0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; margin: 0 0 4px 0; }
+    .subtitle { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.4rem; color: #94a3b8; margin-bottom: 12px; max-width: 920px; overflow-wrap: break-word; }
+    .diagram-wrap { background: #0a0a0a; border-radius: 16px; border: 1px solid #222; padding: 20px; max-width: 920px; overflow: hidden; }
+    .diagram-wrap svg { display: block; width: 100%; height: auto; overflow: hidden; }
+    .moving-dash { stroke-dasharray: 10 8; animation: dash 1.2s linear infinite; }
+    @keyframes dash { to { stroke-dashoffset: -36; } }
+    .flow-dot { fill: var(--df-accent); filter: drop-shadow(0 0 4px rgba(255,59,46,0.8)); }
+    .caption { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.4rem; color: #94a3b8; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>Multi-Agent Pattern — Producer (1) as Orchestrator</h1>
+  <p class="subtitle">OpenAI Agents SDK: Handoffs = delegation; Agent 1 delegates to 2, 3, 4; HITL at critical steps</p>
+
+  <div class="diagram-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 380" width="860" height="380">
+      <defs>
+        <marker id="m2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#FF3B2E"/></marker>
+      </defs>
+      <rect width="860" height="380" fill="#0a0a0a"/>
+
+      <rect x="20" y="25" width="160" height="44" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="100" y="44" text-anchor="middle" font="600 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">Query</text>
+      <text x="100" y="58" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Script review + assign</text>
+
+      <!-- Arrow: Query to Agent 1 -->
+      <path d="M 180 49 L 250 49" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#m2)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.2s" repeatCount="indefinite" path="M 180 49 L 250 49"/></circle>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0.4s" path="M 180 49 L 250 49"/></circle>
+
+      <rect x="250" y="15" width="360" height="62" rx="8" fill="#FF3B2E" stroke="#E53935" stroke-width="1.5"/>
+      <text x="430" y="38" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#fff">1 Producer (PM / Orchestrator)</text>
+      <text x="430" y="54" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="rgba(255,255,255,0.95)">Delegates to 2, 3, 4</text>
+
+      <!-- Arrow down: 1 to 2 -->
+      <path d="M 350 83 L 350 114 L 170 114 L 170 145" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#m2)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.4s" repeatCount="indefinite" path="M 350 83 L 350 114 L 170 114 L 170 145"/></circle>
+      <!-- Arrow down: 1 to 3 -->
+      <path d="M 430 83 L 430 145" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#m2)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.4s" repeatCount="indefinite" begin="0.2s" path="M 430 83 L 430 145"/></circle>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.4s" repeatCount="indefinite" begin="0.6s" path="M 430 83 L 430 145"/></circle>
+      <!-- Arrow down: 1 to 4 -->
+      <path d="M 510 83 L 510 114 L 690 114 L 690 145" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#m2)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.4s" repeatCount="indefinite" begin="0.5s" path="M 510 83 L 510 114 L 690 114 L 690 145"/></circle>
+
+      <text x="260" y="118" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">handoff</text>
+      <text x="430" y="118" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">handoff</text>
+      <text x="600" y="118" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">handoff</text>
+
+      <rect x="80" y="145" width="180" height="56" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="170" y="164" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">2 PC Agent</text>
+      <text x="170" y="178" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Status, client msg</text>
+
+      <rect x="340" y="145" width="180" height="56" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="430" y="164" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">3 CD Agent</text>
+      <text x="430" y="178" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Retention, A/B</text>
+
+      <rect x="600" y="145" width="180" height="56" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="690" y="164" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">4 PPM Agent</text>
+      <text x="690" y="178" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Assignee, QC</text>
+
+      <!-- Arrows: result back to 1 (to center 430, 83) -->
+      <path d="M 170 207 L 170 250 L 430 250 L 430 88" stroke="#FF3B2E" stroke-width="1.5" fill="none" class="moving-dash"/>
+      <circle r="4" class="flow-dot"><animateMotion dur="2.2s" repeatCount="indefinite" path="M 170 207 L 170 250 L 430 250 L 430 88"/></circle>
+      <path d="M 430 207 L 430 250 L 430 88" stroke="#FF3B2E" stroke-width="1.5" fill="none" class="moving-dash"/>
+      <circle r="4" class="flow-dot"><animateMotion dur="2s" repeatCount="indefinite" begin="0.4s" path="M 430 207 L 430 250 L 430 88"/></circle>
+      <path d="M 690 207 L 690 250 L 430 250 L 430 88" stroke="#FF3B2E" stroke-width="1.5" fill="none" class="moving-dash"/>
+      <circle r="4" class="flow-dot"><animateMotion dur="2.2s" repeatCount="indefinite" begin="0.6s" path="M 690 207 L 690 250 L 430 250 L 430 88"/></circle>
+
+      <text x="170" y="230" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">result</text>
+      <text x="430" y="230" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">result</text>
+      <text x="690" y="230" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">result</text>
+
+      <rect x="250" y="258" width="390" height="44" rx="8" fill="#1c1917" stroke="#E53935" stroke-width="2"/>
+      <text x="445" y="276" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#FCA5A5">HITL: confirm task, assignee, QC</text>
+      <text x="445" y="290" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">1 synthesizes → human approves</text>
+
+      <!-- Arrow: HITL to Response -->
+      <path d="M 445 306 L 445 338" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#m2)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1s" repeatCount="indefinite" path="M 445 306 L 445 338"/></circle>
+
+      <text x="445" y="358" text-anchor="middle" font="600 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">Response</text>
+    </svg>
+  </div>
+  <p class="caption">Batch 1 · Moving dashed arrows + dots. Record as GIF.</p>
+</body>
+</html>

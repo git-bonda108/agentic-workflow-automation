@@ -1,0 +1,114 @@
+{
+  "_meta": {
+    "source": "clickup_mcp",
+    "tool": "create_task",
+    "mode": "mock",
+    "description": "Response when PR-4 (Claude-to-ClickUp) agent creates a task from natural language instruction"
+  },
+  "agent_input": {
+    "natural_language": "Create a new longform edit task for Mango Pod, video title 'Why Nobody Can Copy This Strategy', assign to editor.d, due March 28, high priority, complexity tier high",
+    "parsed_intent": {
+      "action": "create_task",
+      "space": "Mango Pod",
+      "list": "Batch 14 \u2014 Longform",
+      "task_name": "LF-1403 \u2014 Why Nobody Can Copy This Strategy",
+      "assignee": "editor.d",
+      "due_date": "2026-03-28",
+      "priority": "high",
+      "custom_fields": {
+        "Content Type": "Longform",
+        "Client": "Mango",
+        "Complexity Tier": "High",
+        "Estimated Hours": 16
+      }
+    }
+  },
+  "mcp_request": {
+    "tool": "create_task",
+    "arguments": {
+      "listId": "li_100101",
+      "name": "LF-1403 \u2014 Why Nobody Can Copy This Strategy",
+      "description": "Longform edit \u2014 Mango Pod Batch 14\nComplexity: High | Est. Hours: 16\nCreated via PR-4 Claude-to-ClickUp Agent",
+      "assignees": [
+        "u_504"
+      ],
+      "priority": 2,
+      "due_date": "2026-03-28T00:00:00Z",
+      "tags": [
+        "longform",
+        "batch-14"
+      ],
+      "custom_fields": [
+        {
+          "id": "cf_001",
+          "value": "Longform"
+        },
+        {
+          "id": "cf_002",
+          "value": "Mango"
+        },
+        {
+          "id": "cf_003",
+          "value": "High"
+        },
+        {
+          "id": "cf_004",
+          "value": 16
+        }
+      ]
+    }
+  },
+  "mcp_response": {
+    "id": "task_new_1403",
+    "name": "LF-1403 \u2014 Why Nobody Can Copy This Strategy",
+    "status": {
+      "status": "Open",
+      "color": "#d3d3d3"
+    },
+    "priority": {
+      "id": 2,
+      "priority": "high"
+    },
+    "assignees": [
+      {
+        "id": "u_504",
+        "username": "editor.d"
+      }
+    ],
+    "due_date": "2026-03-28T00:00:00Z",
+    "date_created": "2026-03-09T10:30:00Z",
+    "url": "https://app.clickup.com/9012345678/v/li/li_100101/task_new_1403",
+    "custom_fields": [
+      {
+        "id": "cf_001",
+        "name": "Content Type",
+        "value": "Longform"
+      },
+      {
+        "id": "cf_002",
+        "name": "Client",
+        "value": "Mango"
+      },
+      {
+        "id": "cf_003",
+        "name": "Complexity Tier",
+        "value": "High"
+      },
+      {
+        "id": "cf_004",
+        "name": "Estimated Hours",
+        "value": 16
+      }
+    ]
+  },
+  "agent_confirmation": {
+    "message": "\u2705 Created task **LF-1403 \u2014 Why Nobody Can Copy This Strategy** in Mango Pod \u2192 Batch 14 \u2014 Longform\n\u2022 Assigned to: editor.d\n\u2022 Due: March 28, 2026\n\u2022 Priority: High\n\u2022 Complexity: High (est. 16h)\n\n\u26a0\ufe0f HITL Gate: Task created in 'Open' status. Producer must confirm before editor begins.",
+    "hitl_required": true,
+    "hitl_gate": "PR-4-CONFIRM",
+    "next_actions": [
+      "Producer reviews and confirms task details",
+      "Subtask template auto-applied after confirmation",
+      "Editor notified via Slack once status \u2192 In Progress"
+    ]
+  }
+}

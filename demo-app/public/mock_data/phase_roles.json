@@ -1,0 +1,49 @@
+{
+  "source": "DFM Current Pipeline (XLSX) — RESPONSIBLE column normalized to 5 core roles",
+  "pipeline_name": "Dragonfruit Agentic AI Pipeline Demo - Plan, Reason and Act",
+  "core_roles": ["Producer", "Production Coordinator", "Creative Director", "Post-Production Manager", "Editor"],
+  "phases": [
+    {
+      "id": "onboarding",
+      "phase": "Onboarding",
+      "order": 1,
+      "role_ids": ["Producer", "Creative Director"],
+      "description": "Client setup, portal, ClickUp space, Slack, Channel Audit, Content Strategy, Kickoff."
+    },
+    {
+      "id": "onboarding-prepro-overlap",
+      "phase": "Onboarding / Pre-Pro Overlap",
+      "order": 2,
+      "role_ids": ["Producer", "Creative Director", "Post-Production Manager", "Editor"],
+      "description": "Style Brief, Style Edit, Frame.io review, client share, Editing SOP."
+    },
+    {
+      "id": "pre-production",
+      "phase": "Pre-Production",
+      "order": 3,
+      "role_ids": ["Producer", "Creative Director"],
+      "description": "Template batch, dates, assignments, CD ideation, script drafting, client pass."
+    },
+    {
+      "id": "production",
+      "phase": "Production",
+      "order": 4,
+      "role_ids": [],
+      "description": "Client records and uploads; handoff to post-production."
+    },
+    {
+      "id": "post-production",
+      "phase": "Post-Production",
+      "order": 5,
+      "role_ids": ["Production Coordinator", "Editor", "Creative Director", "Post-Production Manager"],
+      "description": "Footage link, edit, roadmap, thumbnails, CD/PPM reviews, client review, publish prep."
+    },
+    {
+      "id": "publish-reporting",
+      "phase": "Publish & Reporting",
+      "order": 6,
+      "role_ids": ["Creative Director", "Production Coordinator"],
+      "description": "Publisher upload, metadata, A/B review, monthly report."
+    }
+  ]
+}

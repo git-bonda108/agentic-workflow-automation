@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dragonfruit — Agentic Architecture (Animated)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --df-bg: #FAFAFA;
+      --df-surface: #FFFFFF;
+      --df-text: #1a1a1a;
+      --df-muted: #64748B;
+      --df-accent: #FF3B2E;
+      --df-accent-hover: #E53935;
+      --df-accent-dark: #E53935;
+      --df-border: #E2E8F0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: 'Inter', Helvetica, sans-serif;
+      background: #000;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; margin: 0 0 4px 0; }
+    .subtitle { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.4rem; color: #94a3b8; margin-bottom: 20px; max-width: 960px; overflow-wrap: break-word; }
+    .diagram-wrap {
+      background: #0a0a0a;
+      border-radius: 16px;
+      border: 1px solid #222;
+      padding: 24px;
+      max-width: 960px;
+      overflow: hidden;
+    }
+    .diagram-wrap svg { display: block; width: 100%; height: auto; overflow: hidden; }
+    .flow-dot { fill: var(--df-accent); filter: drop-shadow(0 0 6px rgba(255,59,46,0.7)); }
+    .agent-box { animation: agent-pulse 2.8s cubic-bezier(0.4,0,0.2,1) infinite; }
+    .agent-box:nth-child(1) { animation-delay: 0s; }
+    .agent-box:nth-child(2) { animation-delay: 0.6s; }
+    .agent-box:nth-child(3) { animation-delay: 1.2s; }
+    .agent-box:nth-child(4) { animation-delay: 1.8s; }
+    @keyframes agent-pulse {
+      0%, 100% { filter: drop-shadow(0 0 0 rgba(255,59,46,0)); }
+      50% { filter: drop-shadow(0 0 16px rgba(255,59,46,0.4)); }
+    }
+    .arrow-flow { stroke-dasharray: 8 6; animation: dash 1.4s linear infinite; }
+    @keyframes dash { to { stroke-dashoffset: -28; } }
+    .caption { font-size: 0.4rem; color: #94a3b8; margin-top: 12px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Dragonfruit — AI-Enabled Pipeline Architecture</h1>
+  <p class="subtitle">Scale 4 → 7 clients per pod · Agentic infrastructure + workflow automation</p>
+
+  <div class="diagram-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 580" width="900" height="580">
+      <defs>
+        <style>
+          .title { font: 400 4px 'Bebas Neue', sans-serif; fill: #e2e8f0; }
+          .subtitle { font: 500 4px 'Inter', sans-serif; fill: #94a3b8; }
+          .box { fill: #111; stroke: #334155; stroke-width: 1.5; }
+          .box-accent { fill: #FF3B2E; }
+          .box-accent .title, .box-accent .subtitle { fill: #FFFFFF; }
+          .box-agent { fill: #111; stroke: #FF3B2E; stroke-width: 2; }
+          .hitl { font: 600 4px 'Inter', sans-serif; fill: #FCA5A5; }
+        </style>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#FF3B2E"/>
+        </marker>
+      </defs>
+      <rect width="900" height="580" fill="#0a0a0a"/>
+
+      <rect x="20" y="58" width="860" height="72" rx="8" class="box"/>
+      <text x="450" y="78" text-anchor="middle" class="subtitle">TRIGGERS & ENTRY POINTS</text>
+      <rect x="40" y="88" width="120" height="32" rx="6" class="box-agent"/>
+      <text x="100" y="105" text-anchor="middle" class="title" font-size="5">Slack</text>
+      <rect x="180" y="88" width="120" height="32" rx="6" class="box-agent"/>
+      <text x="240" y="105" text-anchor="middle" class="title" font-size="5">Dashboard</text>
+      <rect x="320" y="88" width="120" height="32" rx="6" class="box-agent"/>
+      <text x="380" y="105" text-anchor="middle" class="title" font-size="5">ClickUp</text>
+      <rect x="460" y="88" width="120" height="32" rx="6" class="box-agent"/>
+      <text x="520" y="105" text-anchor="middle" class="title" font-size="5">Frame.io</text>
+      <rect x="600" y="88" width="120" height="32" rx="6" class="box-agent"/>
+      <text x="660" y="105" text-anchor="middle" class="title" font-size="5">Notion</text>
+      <rect x="740" y="88" width="120" height="32" rx="6" class="box-agent"/>
+      <text x="800" y="105" text-anchor="middle" class="title" font-size="5">Dropbox</text>
+
+      <line x1="100" y1="120" x2="150" y2="155" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="240" y1="120" x2="300" y2="155" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="380" y1="120" x2="450" y2="155" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="520" y1="120" x2="600" y2="155" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="660" y1="120" x2="750" y2="155" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <circle r="4" class="flow-dot"><animateMotion dur="1.8s" repeatCount="indefinite" path="M100 120 L150 155"/></circle>
+      <circle r="4" class="flow-dot"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0.6s" path="M380 120 L450 155"/></circle>
+
+      <rect x="20" y="145" width="860" height="115" rx="8" class="box"/>
+      <text x="450" y="165" text-anchor="middle" class="subtitle">AGENTIC LAYER — Role-based AI</text>
+      <rect x="40" y="178" width="195" height="72" rx="8" class="box-agent agent-box"/>
+      <text x="137" y="198" text-anchor="middle" class="title" font-size="5">Producer Agent</text>
+      <text x="137" y="213" text-anchor="middle" class="subtitle" font-size="5">Task create, ClickUp, routing</text>
+      <text x="137" y="230" text-anchor="middle" class="hitl">HITL: confirm task</text>
+      <rect x="255" y="178" width="195" height="72" rx="8" class="box-agent agent-box"/>
+      <text x="352" y="198" text-anchor="middle" class="title" font-size="5">PC Agent</text>
+      <text x="352" y="213" text-anchor="middle" class="subtitle" font-size="5">Status, Slack templates</text>
+      <text x="352" y="230" text-anchor="middle" class="hitl">HITL: approve messages</text>
+      <rect x="470" y="178" width="195" height="72" rx="8" class="box-agent agent-box"/>
+      <text x="567" y="198" text-anchor="middle" class="title" font-size="5">CD Agent</text>
+      <text x="567" y="213" text-anchor="middle" class="subtitle" font-size="5">Retention, A/B alerts</text>
+      <text x="567" y="230" text-anchor="middle" class="hitl">HITL: alert → CD</text>
+      <rect x="685" y="178" width="195" height="72" rx="8" class="box-agent agent-box"/>
+      <text x="782" y="198" text-anchor="middle" class="title" font-size="5">PPM Agent</text>
+      <text x="782" y="213" text-anchor="middle" class="subtitle" font-size="5">QC, capacity</text>
+      <text x="782" y="230" text-anchor="middle" class="hitl">HITL: assign · QC</text>
+
+      <line x1="137" y1="250" x2="200" y2="282" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="352" y1="250" x2="350" y2="282" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="567" y1="250" x2="500" y2="282" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="782" y1="250" x2="700" y2="282" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <circle r="4" class="flow-dot"><animateMotion dur="2s" repeatCount="indefinite" path="M137 250 L200 282"/></circle>
+
+      <rect x="20" y="275" width="860" height="88" rx="8" class="box"/>
+      <text x="450" y="295" text-anchor="middle" class="subtitle">CONNECTORS (function tools + MCP)</text>
+      <rect x="60" y="308" width="140" height="48" rx="6" class="box"/>
+      <text x="130" y="328" text-anchor="middle" class="title" font-size="5">ClickUp</text>
+      <rect x="220" y="308" width="140" height="48" rx="6" class="box"/>
+      <text x="290" y="328" text-anchor="middle" class="title" font-size="5">Slack</text>
+      <rect x="380" y="308" width="140" height="48" rx="6" class="box"/>
+      <text x="450" y="328" text-anchor="middle" class="title" font-size="5">Notion</text>
+      <rect x="540" y="308" width="140" height="48" rx="6" class="box"/>
+      <text x="610" y="328" text-anchor="middle" class="title" font-size="5">Frame.io</text>
+      <rect x="700" y="308" width="140" height="48" rx="6" class="box"/>
+      <text x="770" y="328" text-anchor="middle" class="title" font-size="5">QC / Assignment</text>
+
+      <line x1="130" y1="356" x2="150" y2="392" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="290" y1="356" x2="280" y2="392" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="450" y1="356" x2="450" y2="392" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="610" y1="356" x2="620" y2="392" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="770" y1="356" x2="750" y2="392" class="arrow-flow" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <circle r="4" class="flow-dot"><animateMotion dur="1.6s" repeatCount="indefinite" begin="0.4s" path="M130 356 L150 392"/></circle>
+
+      <rect x="20" y="385" width="860" height="98" rx="8" class="box"/>
+      <text x="450" y="405" text-anchor="middle" class="subtitle">EXTERNAL SYSTEMS (your existing stack)</text>
+      <rect x="40" y="420" width="150" height="52" rx="6" class="box-accent"/>
+      <text x="115" y="443" text-anchor="middle" class="title" font-size="5">ClickUp</text>
+      <rect x="210" y="420" width="150" height="52" rx="6" class="box-accent"/>
+      <text x="285" y="443" text-anchor="middle" class="title" font-size="5">Slack</text>
+      <rect x="380" y="420" width="150" height="52" rx="6" class="box-accent"/>
+      <text x="455" y="443" text-anchor="middle" class="title" font-size="5">Notion</text>
+      <rect x="550" y="420" width="150" height="52" rx="6" class="box-accent"/>
+      <text x="625" y="443" text-anchor="middle" class="title" font-size="5">Frame.io</text>
+      <rect x="720" y="420" width="140" height="52" rx="6" class="box-accent"/>
+      <text x="790" y="443" text-anchor="middle" class="title" font-size="5">Make / Zapier</text>
+
+      <rect x="20" y="498" width="860" height="72" rx="8" fill="#1c1917" stroke="#334155" stroke-width="1"/>
+      <text x="40" y="518" class="title" font-size="5">HITL = Human-in-the-loop</text>
+      <text x="40" y="535" class="subtitle" font-size="5">Approval at task create, assignment, client messages, QC escalation.</text>
+      <text x="40" y="555" class="subtitle" font-size="5">Dragonfruit · March 2026</text>
+    </svg>
+  </div>
+  <p class="caption">Open in browser → record screen as GIF (8–10 sec loop).</p>
+</body>
+</html>

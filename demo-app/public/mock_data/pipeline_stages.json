@@ -1,0 +1,79 @@
+{
+  "pipeline_name": "Dragonfruit Production Pipeline (with Feedback)",
+  "phases": [
+    {
+      "phase": "Onboarding",
+      "order": 1,
+      "steps": [
+        {"step": "Client signs contract", "role": "Onboarding Team", "tool": "Nusii"},
+        {"step": "Share KO Survey", "role": "Onboarding Team", "tool": "Google Forms"},
+        {"step": "Create external Slack with client", "role": "Onboarding Team", "tool": "Slack"},
+        {"step": "Create new client portal/calendar", "role": "Producer", "tool": "Notion"},
+        {"step": "Create template client space in ClickUp", "role": "Producer", "tool": "ClickUp"},
+        {"step": "Create internal Slack channel", "role": "Producer", "tool": "Slack"},
+        {"step": "Schedule intro call", "role": "Producer", "tool": "Slack, Zoom"},
+        {"step": "DA assembles Channel Audit Report", "role": "CS (Data Analyst)", "tool": "Google Sheets, Notion, ClickUp"},
+        {"step": "CD creates Channel Content Strategy", "role": "CD", "tool": "Notion, YouTube Studio"},
+        {"step": "ECD approves Content Strategy", "role": "ECD", "tool": "Notion, Slack, ClickUp"},
+        {"step": "Channel Kickoff Call", "role": "ECD, Producer, CD", "tool": "Zoom"}
+      ]
+    },
+    {
+      "phase": "Onboarding / Pre-Pro Overlap",
+      "order": 2,
+      "steps": [
+        {"step": "CD develops Style Brief", "role": "CD", "tool": "ClickUp, Notion, YouTube, ViewStats, 1of10"},
+        {"step": "PPM or Editor creates Style Edit", "role": "PPM / Editor", "tool": "Adobe Premiere, After Effects"},
+        {"step": "PPM reviews Style Edit", "role": "PPM", "tool": "Frame.io, ClickUp"},
+        {"step": "CD approves Style Edit", "role": "CD", "tool": "Frame.io, ClickUp"},
+        {"step": "Share Style Edit to client", "role": "Producer", "tool": "Slack, Frame.io"},
+        {"step": "PPM assembles Editing SOP", "role": "PPM", "tool": "Notion"}
+      ]
+    },
+    {
+      "phase": "Pre-Production",
+      "order": 3,
+      "steps": [
+        {"step": "Producer applies template batch in ClickUp", "role": "Producer", "tool": "ClickUp, Make"},
+        {"step": "Producer sets publish and due dates", "role": "Producer", "tool": "ClickUp"},
+        {"step": "Producer assigns tasks", "role": "Producer", "tool": "ClickUp, Make"},
+        {"step": "CD ideates and creates doc in Notion", "role": "CD", "tool": "ClickUp, Notion, YouTube, ViewStats, 1of10"},
+        {"step": "Producer passes ideation to client", "role": "Producer", "tool": "Slack, ClickUp"},
+        {"step": "Client records and shares voice notes", "role": "Client", "tool": "Dropbox, Slack, Notta"},
+        {"step": "Script Writer drafts script V1", "role": "Script Writer", "tool": "Notta, ChatGPT, Slack, Notion, ClickUp"},
+        {"step": "CD reviews and approves script", "role": "CD", "tool": "Slack, Notion, ClickUp"},
+        {"step": "Producer passes script to client", "role": "Producer", "tool": "Slack, Notion, ClickUp"}
+      ]
+    },
+    {
+      "phase": "Production",
+      "order": 4,
+      "steps": [
+        {"step": "Client records script", "role": "Client", "tool": "Notion"},
+        {"step": "Client uploads raw footage", "role": "Client", "tool": "Dropbox"},
+        {"step": "Client passes link to team", "role": "Client", "tool": "Slack, Dropbox"}
+      ]
+    },
+    {
+      "phase": "Post-Production",
+      "order": 5,
+      "steps": [
+        {"step": "YPC confirms footage link", "role": "YPC", "tool": "Dropbox, Slack"},
+        {"step": "Editor downloads footage, uploads to Descript", "role": "Editor", "tool": "Dropbox, Make, Descript"},
+        {"step": "Editor assembles Roadmap", "role": "Editor", "tool": "Adobe After Effects"},
+        {"step": "Designer creates Thumbnails V1", "role": "Designer", "tool": "Adobe Photoshop, ChatGPT"},
+        {"step": "CD reviews Roadmap and rough cut", "role": "CD", "tool": "ClickUp, Descript"},
+        {"step": "Editor delivers Edit V1", "role": "Editor", "tool": "Adobe Premiere, Frame.io, ClickUp"},
+        {"step": "PPM V1 Review", "role": "PPM", "tool": "Frame.io, ClickUp"},
+        {"step": "Edit V2 / PPM V2 / CD V2 Review", "role": "Editor, PPM, CD", "tool": "Frame.io, ClickUp"},
+        {"step": "Edit V3 / PPM V3 / CD V3 Review", "role": "Editor, PPM, CD", "tool": "Frame.io, ClickUp"},
+        {"step": "Client Review", "role": "YPC, Client", "tool": "Slack, ClickUp, Frame.io"},
+        {"step": "Edit V4 / CD or PPM V4 Review", "role": "Editor, PPM, CD", "tool": "Frame.io, ClickUp"},
+        {"step": "Publish Prep — YPC to Publisher", "role": "YPC", "tool": "Frame.io, ClickUp, Dropbox"},
+        {"step": "Publisher uploads to YouTube, adds metadata, schedules", "role": "Publisher", "tool": "YouTube, Notion, ClickUp"},
+        {"step": "CD reviews A/B test results", "role": "CD", "tool": "YouTube, ClickUp"},
+        {"step": "Monthly Report — DA executes report", "role": "CS (Data Analyst)", "tool": "Notion, ClickUp, YouTube, ViewStats, 1of10"}
+      ]
+    }
+  ]
+}

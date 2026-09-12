@@ -1,0 +1,74 @@
+{
+  "source": "DFM AI Tool Survey — Role Breakdown, February 2026",
+  "total_respondents": 73,
+  "core_roles": 5,
+  "tools_tracked": 20,
+  "roles": [
+    {
+      "role": "Editors",
+      "count": 46,
+      "pct": 0.63,
+      "top_tools": [
+        {"tool": "ChatGPT", "count": 41, "pct": 0.89},
+        {"tool": "Gemini", "count": 31, "pct": 0.67},
+        {"tool": "Freepik AI", "count": 26, "pct": 0.57},
+        {"tool": "ElevenLabs", "count": 24, "pct": 0.52},
+        {"tool": "Adobe Firefly", "count": 23, "pct": 0.50},
+        {"tool": "Google Veo", "count": 17, "pct": 0.37}
+      ],
+      "use_cases": ["Ideation & Research", "Image Generation", "Video Generation", "Audio & Voice", "Frame Extension", "Code & Expressions"],
+      "top_requests": ["ChatGPT Paid (13)", "Higgsfield (11)", "Gemini Premium (7)", "Adobe CC / Firefly (5)"]
+    },
+    {
+      "role": "Production Coordinators",
+      "count": 9,
+      "pct": 0.12,
+      "top_tools": [
+        {"tool": "ChatGPT", "count": 9, "pct": 1.0},
+        {"tool": "Gemini", "count": 5, "pct": 0.56},
+        {"tool": "Adobe Firefly", "count": 3, "pct": 0.33},
+        {"tool": "ElevenLabs", "count": 3, "pct": 0.33}
+      ],
+      "use_cases": ["Client Communication", "Content Writing", "Task Management", "Report Generation", "Learning & Tutorials"],
+      "top_requests": ["ChatGPT Paid (4)", "Gemini (2)", "Claude / ElevenLabs (1 each)"]
+    },
+    {
+      "role": "Creative Directors",
+      "count": 5,
+      "pct": 0.07,
+      "top_tools": [
+        {"tool": "ChatGPT", "count": 5, "pct": 1.0},
+        {"tool": "Adobe Firefly", "count": 2, "pct": 0.40},
+        {"tool": "Gemini", "count": 2, "pct": 0.40}
+      ],
+      "use_cases": ["Ideation & Concepting", "Scripting & Revision", "Thumbnail Design", "Client Communication", "Research"],
+      "top_requests": ["Higgsfield (3)", "Claude / Gemini / ChatGPT (1 each)", "Wispr Flow for voice-to-text"]
+    },
+    {
+      "role": "Post Production Managers",
+      "count": 4,
+      "pct": 0.05,
+      "top_tools": [
+        {"tool": "ChatGPT", "count": 4, "pct": 1.0},
+        {"tool": "ElevenLabs", "count": 4, "pct": 1.0},
+        {"tool": "Runway", "count": 3, "pct": 0.75},
+        {"tool": "Gemini", "count": 2, "pct": 0.50},
+        {"tool": "Claude", "count": 2, "pct": 0.50}
+      ],
+      "use_cases": ["Audio Fixes & Voice", "Documentation & SOPs", "Video Concepting", "Team Support", "Script Analysis"],
+      "top_requests": ["ChatGPT Paid (3)", "Midjourney (2)", "Runway (2)", "ElevenLabs / Kling (1 each)"]
+    },
+    {
+      "role": "Producers",
+      "count": 4,
+      "pct": 0.05,
+      "top_tools": [
+        {"tool": "ChatGPT", "count": 2, "pct": 0.50},
+        {"tool": "Claude", "count": 2, "pct": 0.50},
+        {"tool": "Gemini", "count": 1, "pct": 0.25}
+      ],
+      "use_cases": ["Strategic Planning", "Client Research", "Communication", "Data & Visuals"],
+      "top_requests": ["Claude (2)", "ChatGPT Paid (1)", "Perplexity for multi-model access"]
+    }
+  ]
+}

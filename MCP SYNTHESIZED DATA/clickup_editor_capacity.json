@@ -1,0 +1,112 @@
+{
+  "_meta": {
+    "source": "clickup_mcp",
+    "tool": "get_workspace_tasks",
+    "mode": "mock",
+    "description": "Editor workload data for ED-2 Capacity-Based Assignment agent. Aggregated from all pods."
+  },
+  "editors": [
+    {
+      "id": "u_501",
+      "username": "editor.a",
+      "email": "ops.a@example.com",
+      "pod": "Mango",
+      "specialization": [
+        "longform",
+        "shortform"
+      ],
+      "current_tasks": [
+        {
+          "task_id": "task_8a1b2c",
+          "name": "LF-1401",
+          "status": "in progress",
+          "estimated_hours": 18,
+          "hours_logged": 8,
+          "due_date": "2026-03-21"
+        }
+      ],
+      "weekly_capacity_hours": 40,
+      "hours_committed_this_week": 28,
+      "hours_available": 12,
+      "skill_rating": {
+        "longform": 4.2,
+        "shortform": 3.8,
+        "motion_graphics": 3.0
+      }
+    },
+    {
+      "id": "u_502",
+      "username": "editor.b",
+      "email": "ops.b@example.com",
+      "pod": "Mango",
+      "specialization": [
+        "longform"
+      ],
+      "current_tasks": [
+        {
+          "task_id": "task_9d3e4f",
+          "name": "LF-1402",
+          "status": "review",
+          "estimated_hours": 14,
+          "hours_logged": 12,
+          "due_date": "2026-03-18"
+        }
+      ],
+      "weekly_capacity_hours": 40,
+      "hours_committed_this_week": 35,
+      "hours_available": 5,
+      "skill_rating": {
+        "longform": 4.5,
+        "shortform": 3.2,
+        "motion_graphics": 4.0
+      }
+    },
+    {
+      "id": "u_503",
+      "username": "editor.c",
+      "email": "ops.d@example.com",
+      "pod": "Lemon",
+      "specialization": [
+        "shortform",
+        "longform"
+      ],
+      "current_tasks": [
+        {
+          "task_id": "task_7x8y9z",
+          "name": "SF-1103",
+          "status": "in progress",
+          "estimated_hours": 4,
+          "hours_logged": 1,
+          "due_date": "2026-03-14"
+        }
+      ],
+      "weekly_capacity_hours": 40,
+      "hours_committed_this_week": 18,
+      "hours_available": 22,
+      "skill_rating": {
+        "longform": 3.5,
+        "shortform": 4.6,
+        "motion_graphics": 3.2
+      }
+    },
+    {
+      "id": "u_504",
+      "username": "editor.d",
+      "email": "ops.e@example.com",
+      "pod": "Lemon",
+      "specialization": [
+        "longform",
+        "motion_graphics"
+      ],
+      "current_tasks": [],
+      "weekly_capacity_hours": 40,
+      "hours_committed_this_week": 0,
+      "hours_available": 40,
+      "skill_rating": {
+        "longform": 4.0,
+        "shortform": 3.0,
+        "motion_graphics": 4.8
+      }
+    }
+  ]
+}

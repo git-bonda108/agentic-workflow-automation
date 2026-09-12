@@ -1,0 +1,10 @@
+{
+  "name": "dragonfruit",
+  "private": true,
+  "scripts": {
+    "start": "cd demo-app && npm run dev",
+    "demo": "cd demo-app && npm run dev",
+    "demo:build": "cd demo-app && npm run build",
+    "demo:backend": "cd demo-app && npm run backend"
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "_meta": {
+    "source": "clickup_mcp",
+    "tool": "get_workspace_tasks",
+    "mode": "mock",
+    "filters": {
+      "space": "Mango Pod",
+      "list": "Batch 14 \u2014 Longform"
+    },
+    "description": "Tasks for Mango Pod Batch 14 longform \u2014 used by PR-4 (Claude-to-ClickUp) and ED-2 (Capacity Assignment)"
+  },
+  "tasks": [
+    {
+      "id": "task_8a1b2c",
+      "name": "LF-1401 \u2014 Why I Spent $1M on a Failed Experiment",
+      "status": {
+        "status": "In Progress",
+        "color": "#f9d900"
+      },
+      "priority": {
+        "id": 2,
+        "priority": "high",
+        "color": "#ffcc00"
+      },
+      "assignees": [
+        {
+          "id": "u_501",
+          "username": "editor.a",
+          "email": "ops.a@example.com"
+        }
+      ],
+      "creator": {
+        "id": "u_101",
+        "username": "producer.a"
+      },
+      "due_date": "2026-03-21T00:00:00Z",
+      "start_date": "2026-03-10T00:00:00Z",
+      "date_created": "2026-03-03T14:22:00Z",
+      "list": {
+        "id": "li_100101",
+        "name": "Batch 14 \u2014 Longform"
+      },
+      "space": {
+        "id": "sp_901001",
+        "name": "\ud83e\udd6d Mango Pod"
+      },
+      "tags": [
+        {
+          "name": "longform"
+        },
+        {
+          "name": "edit-v1"
+        }
+      ],
+      "custom_fields": [
+        {
+          "id": "cf_001",
+          "name": "Content Type",
+          "value": "Longform"
+        },
+        {
+          "id": "cf_002",
+          "name": "Client",
+          "value": "Mango"
+        },
+        {
+          "id": "cf_003",
+          "name": "Complexity Tier",
+          "value": "High"
+        },
+        {
+          "id": "cf_004",
+          "name": "Estimated Hours",
+          "value": 18
+        },
+        {
+          "id": "cf_005",
+          "name": "Script Status",
+          "value": "Approved"
+        },
+        {
+          "id": "cf_006",
+          "name": "Footage Status",
+          "value": "Received"
+        }
+      ],
+      "subtasks": [
+        {
+          "id": "sub_001",
+          "name": "Rough Cut",
+          "status": "complete",
+          "assignee": "editor.a"
+        },
+        {
+          "id": "sub_002",
+          "name": "Roadmap",
+          "status": "complete",
+          "assignee": "editor.a"
+        },
+        {
+          "id": "sub_003",
+          "name": "Edit V1",
+          "status": "in progress",
+          "assignee": "editor.a"
+        },
+        {
+          "id": "sub_004",
+          "name": "CD Review V1",
+          "status": "open",
+          "assignee": "cd.a"
+        },
+        {
+          "id": "sub_005",
+          "name": "PPM Review V1",
+          "status": "open",
+          "assignee": "ppm.a"
+        },
+        {
+          "id": "sub_006",
+          "name": "Edit V2",
+          "status": "open",
+          "assignee": "editor.a"
+        },
+        {
+          "id": "sub_007",
+          "name": "Client Review",
+          "status": "open",
+          "assignee": "producer.a"
+        }
+      ],
+      "dependencies": [
+        {
+          "task_id": "sub_003",
+          "depends_on": "sub_002",
+          "type": "waiting_on"
+        }
+      ],
+      "time_estimate": 64800000,
+      "time_spent": 28800000
+    },
+    {
+      "id": "task_9d3e4f",
+      "name": "LF-1402 \u2014 The Algorithm Nobody Talks About",
+      "status": {
+        "status": "Review",
+        "color": "#a875ff"
+      },
+      "priority": {
+        "id": 2,
+        "priority": "high",
+        "color": "#ffcc00"
+      },
+      "assignees": [
+        {
+          "id": "u_502",
+          "username": "editor.b",
+          "email": "ops.b@example.com"
+        }
+      ],
+      "creator": {
+        "id": "u_101",
+        "username": "producer.a"
+      },
+      "due_date": "2026-03-18T00:00:00Z",
+      "start_date": "2026-03-05T00:00:00Z",
+      "date_created": "2026-03-01T09:15:00Z",
+      "list": {
+        "id": "li_100101",
+        "name": "Batch 14 \u2014 Longform"
+      },
+      "space": {
+        "id": "sp_901001",
+        "name": "\ud83e\udd6d Mango Pod"
+      },
+      "tags": [
+        {
+          "name": "longform"
+        },
+        {
+          "name": "cd-review-v2"
+        }
+      ],
+      "custom_fields": [
+        {
+          "id": "cf_001",
+          "name": "Content Type",
+          "value": "Longform"
+        },
+        {
+          "id": "cf_002",
+          "name": "Client",
+          "value": "Mango"
+        },
+        {
+          "id": "cf_003",
+          "name": "Complexity Tier",
+          "value": "Medium"
+        },
+        {
+          "id": "cf_004",
+          "name": "Estimated Hours",
+          "value": 14
+        },
+        {
+          "id": "cf_005",
+          "name": "Script Status",
+          "value": "Approved"
+        },
+        {
+          "id": "cf_006",
+          "name": "Footage Status",
+          "value": "Received"
+        }
+      ],
+      "subtasks": [
+        {
+          "id": "sub_010",
+          "name": "Rough Cut",
+          "status": "complete",
+          "assignee": "editor.b"
+        },
+        {
+          "id": "sub_011",
+          "name": "Roadmap",
+          "status": "complete",
+          "assignee": "editor.b"
+        },
+        {
+          "id": "sub_012",
+          "name": "Edit V1",
+          "status": "complete",
+          "assignee": "editor.b"
+        },
+        {
+          "id": "sub_013",
+          "name": "PPM Review V1",
+          "status": "complete",
+          "assignee": "ppm.a"
+        },
+        {
+          "id": "sub_014",
+          "name": "CD Review V1",
+          "status": "complete",
+          "assignee": "cd.a"
+        },
+        {
+          "id": "sub_015",
+          "name": "Edit V2",
+          "status": "complete",
+          "assignee": "editor.b"
+        },
+        {
+          "id": "sub_016",
+          "name": "CD Review V2",
+          "status": "in progress",
+          "assignee": "cd.a"
+        }
+      ],
+      "time_estimate": 50400000,
+      "time_spent": 43200000
+    }
+  ]
+}

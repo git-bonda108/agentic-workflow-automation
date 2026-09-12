@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dragonfruit — Producer Agent Flow (Animated)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --df-bg: #FAFAFA;
+      --df-surface: #FFFFFF;
+      --df-text: #1a1a1a;
+      --df-muted: #64748B;
+      --df-accent: #FF3B2E;
+      --df-accent-hover: #E53935;
+      --df-accent-dark: #E53935;
+      --df-success: #0d9488;
+      --df-border: #E2E8F0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: 'Inter', Helvetica, sans-serif;
+      background: #000;
+      color: #e2e8f0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; margin: 0 0 4px 0; }
+    .subtitle { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.4rem; color: #94a3b8; margin-bottom: 24px; max-width: 920px; overflow-wrap: break-word; }
+    .flow-container {
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      flex-wrap: nowrap;
+      gap: 0;
+      max-width: 100%;
+      overflow-x: auto;
+      padding: 16px 0;
+      scroll-snap-type: x mandatory;
+    }
+    .flow-container > * { scroll-snap-align: start; }
+    .step {
+      background: #111;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      padding: 14px 18px;
+      min-width: 140px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .step.agent { border-color: var(--df-accent); background: #1c1917; }
+    .step.tool { border-color: var(--df-success); background: #0f172a; }
+    .step-label { font-family: 'Bebas Neue', sans-serif; font-size: 0.38rem; font-weight: 400; text-transform: none; letter-spacing: 0.05em; color: #94a3b8; margin-bottom: 6px; }
+    .step-title { font-family: 'Bebas Neue', sans-serif; font-size: 0.55rem; font-weight: 400; color: #e2e8f0; margin-bottom: 4px; word-break: break-word; }
+    .step-detail { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.4rem; color: #94a3b8; overflow-wrap: break-word; max-width: 100%; overflow: hidden; line-height: 1.25; }
+    .arrow-wrap {
+      display: flex;
+      align-items: center;
+      min-width: 48px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .arrow-wrap::before {
+      content: '';
+      width: 36px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--df-accent) 0%, transparent 100%);
+      animation: flow-dash 1.2s linear infinite;
+    }
+    .arrow-wrap .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--df-accent);
+      box-shadow: 0 0 10px rgba(255,59,46,0.6);
+      position: absolute;
+      left: 0;
+      animation: dot-move 1.8s ease-in-out infinite;
+    }
+    @keyframes flow-dash {
+      0% { opacity: 0.4; }
+      50% { opacity: 1; }
+      100% { opacity: 0.4; }
+    }
+    @keyframes dot-move {
+      0% { left: 0; opacity: 1; }
+      100% { left: 28px; opacity: 0.3; }
+    }
+    .io-badge {
+      font-size: 0.35rem;
+      padding: 3px 6px;
+      border-radius: 999px;
+      margin-top: 6px;
+      display: inline-block;
+    }
+    .io-in { background: rgba(100,116,139,0.2); color: #94a3b8; }
+    .io-out { background: rgba(13,148,136,0.2); color: #2dd4bf; }
+    .pulse { animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.85; }
+    }
+    .caption { font-size: 0.4rem; color: #94a3b8; margin-top: 20px; text-align: center; max-width: 560px; }
+  </style>
+</head>
+<body>
+  <h1>Producer Agent — Agentic Workflow in Action</h1>
+  <p class="subtitle">Goal → Task Decompose → Tool Use (ClickUp → Slack → Frame.io) → Output</p>
+
+  <div class="flow-container">
+    <div class="step pulse">
+      <div class="step-label">1. Goal</div>
+      <div class="step-title">Natural language</div>
+      <div class="step-detail">Create task: Mango Pod, Client Alpha, Fri, Editor 1</div>
+      <span class="io-badge io-in">Input</span>
+    </div>
+    <div class="arrow-wrap"><div class="dot"></div></div>
+    <div class="step agent pulse">
+      <div class="step-label">2. Task decompose</div>
+      <div class="step-title">Producer Agent</div>
+      <div class="step-detail">Parse intent → list_id, task name, due date, assignee</div>
+      <span class="io-badge io-out">Structured intent</span>
+    </div>
+    <div class="arrow-wrap"><div class="dot"></div></div>
+    <div class="step tool">
+      <div class="step-label">3a. Tool use</div>
+      <div class="step-title">ClickUp</div>
+      <div class="step-detail">create_task(list_mango, name, due, assignee)</div>
+      <span class="io-badge io-in">In</span>
+      <span class="io-badge io-out">Task ID</span>
+    </div>
+    <div class="arrow-wrap"><div class="dot"></div></div>
+    <div class="step tool">
+      <div class="step-label">3b. Tool use</div>
+      <div class="step-title">Slack</div>
+      <div class="step-detail">send_message(#mango-pod, "New task, due Fri")</div>
+      <span class="io-badge io-in">HITL approve</span>
+      <span class="io-badge io-out">Sent</span>
+    </div>
+    <div class="arrow-wrap"><div class="dot"></div></div>
+    <div class="step tool">
+      <div class="step-label">3c. Tool use</div>
+      <div class="step-title">Frame.io</div>
+      <div class="step-detail">get_comments(asset) → sentiment → alert if &lt; threshold</div>
+      <span class="io-badge io-in">Comments</span>
+      <span class="io-badge io-out">Sentiment score</span>
+    </div>
+    <div class="arrow-wrap"><div class="dot"></div></div>
+    <div class="step agent pulse">
+      <div class="step-label">4. Output</div>
+      <div class="step-title">Result</div>
+      <div class="step-detail">Task in ClickUp · Slack notified · Frame.io sentiment tracked</div>
+      <span class="io-badge io-out">Done</span>
+    </div>
+  </div>
+
+  <p class="caption">Same flow applies to CD (retention, outlier, A/B), PPM (QC, assignment), PC (templates).</p>
+</body>
+</html>

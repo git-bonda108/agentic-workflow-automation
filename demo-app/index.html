@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dragonfruit — Agentic Pipeline Demo</title>
+    <style>
+      body { margin: 0; background: #ffffff; font-family: 'Inter', system-ui, sans-serif; font-size: 14px; line-height: 1.6; color: #1f2937; }
+      #root { min-height: 100vh; }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root">
+      <div style="padding:2rem;font-size:1.25rem;color:#FFFFFF;">
+        <strong>Dragonfruit</strong> — Loading…
+      </div>
+    </div>
+    <script>
+      window.onerror = function(msg, url, line, col, err) {
+        if (window.__ERROR_SHOWN__) return;
+        window.__ERROR_SHOWN__ = true;
+        var r = document.getElementById('root');
+        var stack = (err && err.stack) ? err.stack : (url ? url + ':' + line + ':' + col : '');
+        if (r) r.innerHTML = '<div style="padding:2rem;font-family:system-ui;max-width:40rem;">' +
+          '<h2 style="color:#c94b62;">Error</h2><pre style="background:#f1f5f9;padding:1rem;overflow:auto;font-size:0.8rem;white-space:pre-wrap;">' +
+          (msg || 'Unknown error') + (stack ? '\n\n' + stack : '') + '</pre>' +
+          '<p><a href="#" onclick="location.reload()" style="color:#E85D75;">Reload</a></p></div>';
+        return false;
+      };
+      window.addEventListener('unhandledrejection', function(e) {
+        if (window.__ERROR_SHOWN__) return;
+        window.__ERROR_SHOWN__ = true;
+        var r = document.getElementById('root');
+        var msg = (e.reason && (e.reason.message || e.reason)) || String(e.reason);
+        if (r) r.innerHTML = '<div style="padding:2rem;font-family:system-ui;max-width:40rem;">' +
+          '<h2 style="color:#c94b62;">Error (unhandled)</h2><pre style="background:#f1f5f9;padding:1rem;overflow:auto;font-size:0.8rem;white-space:pre-wrap;">' +
+          msg + '</pre><p><a href="#" onclick="location.reload()" style="color:#E85D75;">Reload</a></p></div>';
+      });
+    </script>
+    <script type="module" src="/src/main.tsx" id="main-script"></script>
+    <script>
+      document.getElementById('main-script').onerror = function() {
+        if (window.__ERROR_SHOWN__) return;
+        window.__ERROR_SHOWN__ = true;
+        var r = document.getElementById('root');
+        if (r) r.innerHTML = '<div style="padding:2rem;font-family:system-ui;"><h2 style="color:#c94b62;">Script failed to load</h2><p>Check that the dev server is running (npm run dev) or refresh the page.</p><p><a href="/" style="color:#E85D75;">Reload</a></p></div>';
+      };
+      setTimeout(function() {
+        if (window.__ERROR_SHOWN__) return;
+        var r = document.getElementById('root');
+        var text = r ? (r.innerText || r.textContent || '') : '';
+        if (r && text.indexOf('Dragonfruit') !== -1 && text.indexOf('Pipeline') === -1 && text.indexOf('Loading pipeline') === -1) {
+          r.innerHTML = '<div style="padding:2rem;font-family:system-ui,sans-serif;max-width:32rem;">' +
+            '<h2 style="color:#c94b62;">App did not load</h2>' +
+            '<p>Press <strong>F12</strong> → Console and copy any red error, then hard refresh: <strong>Cmd+Shift+R</strong>.</p>' +
+            '<p><a href="/" style="color:#E85D75;">Reload</a></p></div>';
+        }
+      }, 4000);
+    </script>
+  </body>
+</html>

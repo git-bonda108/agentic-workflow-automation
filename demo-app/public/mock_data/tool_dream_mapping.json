@@ -1,0 +1,124 @@
+{
+  "source": "DFM Current vs. Dream Time Allocations (XLSX) — which tool supports which shift",
+  "role_key_notes": {
+    "Producers": "Coordination 74.5% → 41%. Freed time → Client Strategy, Creative QC, Innovation Lab.",
+    "Production Coordinators": "Coordination 70% → 40%. Highest automation ROI.",
+    "Post Production Managers": "Reactive 1:1s → intentional editor management; more hiring/onboarding.",
+    "Creative Directors": "Preproduction 29% → 50%. V1 Review, Non-creative meetings, ClickUp, Post-pub → 0%.",
+    "Editors": "Core editing 66% → 80%. Idle 6.5% → 2%. Revisions 13% → 8%."
+  },
+  "tools": {
+    "CD-1": {
+      "role": "Creative Director",
+      "role_key": "Creative Directors",
+      "dream_impact_short": "Shifts time from manual retention analysis into higher-value preproduction (ideation, scripting).",
+      "current_vs_dream": "Preproduction 29% → 50%; less ad-hoc research.",
+      "categories_affected": ["Preproduction (Ideation, Research, Scripting)"]
+    },
+    "CD-2": {
+      "role": "Creative Director",
+      "role_key": "Creative Directors",
+      "dream_impact_short": "Outlier ideation automated; more time for creative decisions and packaging.",
+      "current_vs_dream": "Preproduction 29% → 50%.",
+      "categories_affected": ["Preproduction (Ideation, Research, Scripting)"]
+    },
+    "CD-3": {
+      "role": "Creative Director",
+      "role_key": "Creative Directors",
+      "dream_impact_short": "Faster thumbnail strategy; supports Preproduction 29% → 50%.",
+      "current_vs_dream": "Preproduction (Packaging) → 50%.",
+      "categories_affected": ["Preproduction (Ideation, Research, Scripting, Packaging)"]
+    },
+    "CD-4": {
+      "role": "Creative Director",
+      "role_key": "Creative Directors",
+      "dream_impact_short": "Post-publication monitoring automated; frees CD from manual competitor tracking.",
+      "current_vs_dream": "Post-Publication Monitoring 6% → 0%.",
+      "categories_affected": ["Post-Publication Monitoring"]
+    },
+    "CD-5": {
+      "role": "Creative Director",
+      "role_key": "Creative Directors",
+      "dream_impact_short": "Instant packaging feedback; less back-and-forth, more time in preproduction.",
+      "current_vs_dream": "Preproduction 29% → 50%.",
+      "categories_affected": ["Preproduction (Packaging)"]
+    },
+    "CD-6": {
+      "role": "Creative Director",
+      "role_key": "Creative Directors",
+      "dream_impact_short": "Client-specific knowledge on tap; consistent ideation without manual lookups.",
+      "current_vs_dream": "Preproduction 29% → 50%; Slack 8% → 5%.",
+      "categories_affected": ["Preproduction", "Slack Communication"]
+    },
+    "CD-7": {
+      "role": "Creative Director",
+      "role_key": "Creative Directors",
+      "dream_impact_short": "Script voice matching reduces revision cycles; more time in high-value preproduction.",
+      "current_vs_dream": "Preproduction 29% → 50%.",
+      "categories_affected": ["Preproduction (Scripting)"]
+    },
+    "CD-8": {
+      "role": "Creative Director",
+      "role_key": "Creative Directors",
+      "dream_impact_short": "Slack-based scoring reduces meetings and ad-hoc reviews.",
+      "current_vs_dream": "Slack Communication 8% → 5%; Preproduction 29% → 50%.",
+      "categories_affected": ["Slack Communication", "Preproduction"]
+    },
+    "CD-9": {
+      "role": "Creative Director",
+      "role_key": "Creative Directors",
+      "dream_impact_short": "Per-client outlier dashboard; research time → creative time.",
+      "current_vs_dream": "Preproduction 29% → 50%.",
+      "categories_affected": ["Preproduction (Research)"]
+    },
+    "ED-1": {
+      "role": "Post-Production Manager",
+      "role_key": "Post Production Managers",
+      "dream_impact_short": "Sentiment visibility reduces reactive 1:1s; supports intentional editor management.",
+      "current_vs_dream": "Video Review/QC 28% → 35%; Editor Management → 30% intentional.",
+      "categories_affected": ["Video Review / QC", "Editor Troubleshooting / Editing Support"]
+    },
+    "ED-2": {
+      "role": "Post-Production Manager",
+      "role_key": "Post Production Managers",
+      "dream_impact_short": "Automated QC reduces manual review burden; fewer revision cycles.",
+      "current_vs_dream": "Video Review/QC 28% → 35%; Editors: Core editing 66% → 80%.",
+      "categories_affected": ["Video Review / QC"]
+    },
+    "ED-3": {
+      "role": "Producer / Production Coordinator",
+      "role_key": "Production Coordinators",
+      "dream_impact_short": "Capacity-based assignment reduces ClickUp admin and idle/waiting time.",
+      "current_vs_dream": "PC: ClickUp 40% → 20%; Editors: Idle 6.5% → 2%.",
+      "categories_affected": ["ClickUp Administration (Total)", "Idle / Waiting"]
+    },
+    "PR-1": {
+      "role": "Producer",
+      "role_key": "Producers",
+      "dream_impact_short": "Timeline calculator reduces manual scheduling; supports Client Strategy and Innovation Lab.",
+      "current_vs_dream": "ClickUp Administration 38% → 18%; freed time → Client Relationship & Strategy 10%, Innovation Lab 10%.",
+      "categories_affected": ["ClickUp Administration (Total)"]
+    },
+    "PR-2": {
+      "role": "Producer",
+      "role_key": "Producers",
+      "dream_impact_short": "Sentiment tracker supports Client Relationship & Strategy and early escalation.",
+      "current_vs_dream": "Slack 17% → 10%; Client Relationship & Strategy 0% → 10%.",
+      "categories_affected": ["Slack Communication (Total)", "Client Relationship & Strategy"]
+    },
+    "PR-3": {
+      "role": "Producer / Production Coordinator",
+      "role_key": "Producers",
+      "dream_impact_short": "Templated Slack reduces manual comms; frees time for strategy and QC.",
+      "current_vs_dream": "Slack 17% → 10% (Producers); PC Slack 11% → 10%.",
+      "categories_affected": ["Slack Communication (Total)"]
+    },
+    "PR-4": {
+      "role": "Producer",
+      "role_key": "Producers",
+      "dream_impact_short": "Claude-to-ClickUp agent cuts manual task creation; biggest lever for coordination reduction.",
+      "current_vs_dream": "ClickUp Administration 38% → 18%; Coordination 74.5% → 41%.",
+      "categories_affected": ["ClickUp Administration (Total)"]
+    }
+  }
+}

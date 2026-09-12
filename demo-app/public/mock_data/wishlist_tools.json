@@ -1,0 +1,23 @@
+{
+  "source": "DFM AI Tool Wish List — Consultant Brief, March 2026",
+  "high_priority": [
+    {"id": "CD-1", "name": "Predictive Retention Scoring", "role": "Creative Director", "category": "Strategy", "description": "Script → predicted retention curve, drop-off flags, improvement suggestions."},
+    {"id": "CD-2", "name": "Competitive Outlier Ideation Engine", "role": "Creative Director", "category": "Research", "description": "Monitor ~20 competitor channels; surface outlier content with theme/format/timing analysis."},
+    {"id": "CD-3", "name": "Visual Packaging & Thumbnail Intelligence", "role": "Creative Director", "category": "Creative", "description": "Competitor thumbnail analysis + script→thumbnail text suggestions."},
+    {"id": "CD-4", "name": "Competitor A/B Test Monitor", "role": "Creative Director", "category": "Intelligence", "description": "Detect competitor title/thumbnail/description changes + performance delta; Slack alerts."},
+    {"id": "ED-1", "name": "Frame.io Comment Sentiment Analyzer", "role": "Editor / PPM", "category": "Quality", "description": "Video-level and client-level sentiment; alerts when below threshold."},
+    {"id": "ED-2", "name": "Automated Video QC Checker", "role": "Editor / PPM", "category": "Quality", "description": "Video vs client checklist → timestamped error report."},
+    {"id": "ED-3", "name": "Automated Capacity-Based Task Assignment", "role": "Producer / PC", "category": "Workflow", "description": "ClickUp + editor availability/skill/pod → suggested assignees."},
+    {"id": "PR-4", "name": "Claude-to-ClickUp Agent", "role": "Producer", "category": "Automation", "description": "Natural language → create/update ClickUp tasks with correct fields and routing."}
+  ],
+  "medium_priority": [
+    {"id": "CD-5", "name": "Packaging Tension Scorer", "role": "Creative Director", "category": "Quality", "description": "Title + thumbnail → score + roast-style feedback (e.g. Slack command)."},
+    {"id": "CD-6", "name": "Client-Specific Knowledge Bases", "role": "Creative Director", "category": "Workflow", "description": "Claude Projects per client: brand voice, scripts, performance data."},
+    {"id": "CD-7", "name": "AI-Assisted Script Voice Matching", "role": "Creative Director", "category": "Creative", "description": "Draft script → match client voice and delivery style."},
+    {"id": "CD-8", "name": "Slack-Based Predictive Scoring Bot", "role": "Creative Director", "category": "Workflow", "description": "Post title/hook in Slack → instant predictive score (1-10)."},
+    {"id": "CD-9", "name": "Client-Specific Outlier Aggregator", "role": "Creative Director", "category": "Research", "description": "Per-client dashboard of outlier content in their niche."},
+    {"id": "PR-1", "name": "Timeline Calculator", "role": "Producer", "category": "Planning", "description": "Content type, deliverables, complexity, turnaround → schedule + milestones."},
+    {"id": "PR-2", "name": "Client Psychology / Sentiment Tracker", "role": "Producer", "category": "Intelligence", "description": "Slack/email/Frame.io → running sentiment profile per client; escalation flags."},
+    {"id": "PR-3", "name": "Slack Message Templates & Automation", "role": "Producer / PC", "category": "Workflow", "description": "Templates for kickoffs, status, revisions, reminders; auto-fill client/project."}
+  ]
+}

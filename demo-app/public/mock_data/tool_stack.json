@@ -1,0 +1,26 @@
+{
+  "source": "DFM Current Pipeline Tool Stack",
+  "total_monthly_usd": 12816.21,
+  "tools": [
+    {"name": "ClickUp", "plan": "Business Plus Plan", "monthly_usd": 2113.99, "used_by": ["Creative Director", "Data Analyst", "Editor", "ECD", "PPM", "Producer", "Production Coordinator", "Publisher", "Scriptwriter", "Thumbnail Designer"], "phase": "Onboarding, Post-Production, Pre-Production"},
+    {"name": "Notion", "plan": "Plus Plan", "monthly_usd": 1176, "used_by": ["Creative Director", "Data Analyst", "Editor", "ECD", "PPM", "Producer", "Production Coordinator", "Publisher", "Scriptwriter", "Thumbnail Designer"], "phase": "Onboarding, Post-Production, Pre-Production, Production"},
+    {"name": "Frame", "plan": "Pro plan", "monthly_usd": 1095, "used_by": ["Creative Director", "Editor", "ECD", "PPM", "Producer", "Production Coordinator"], "phase": "Onboarding, Post-Production"},
+    {"name": "Squarespace - Google Workspace", "plan": "Business Starter", "monthly_usd": 932.40, "used_by": "All Roles", "phase": "Pre-Production, Post-Production, Operations"},
+    {"name": "Slack", "plan": "Pro plan", "monthly_usd": 866.25, "used_by": "All Roles", "phase": "Pre-Production, Post-Production, Onboarding"},
+    {"name": "Storyblocks", "plan": "Business License", "monthly_usd": 840, "used_by": ["Editor"], "phase": "Post-Production"},
+    {"name": "Dropbox", "plan": "Dropbox Advanced", "monthly_usd": 768, "used_by": ["Editor", "Production Coordinator", "Publisher"], "phase": "Post-Production, Pre-Production, Production"},
+    {"name": "Missive", "plan": "Productive Plan", "monthly_usd": 686, "used_by": ["Producer", "Creative Director", "Leadership"], "phase": "Pre-Production, Post-Production"},
+    {"name": "Make", "plan": "Teams plan", "monthly_usd": 559.58, "used_by": ["Operations", "Leadership"], "phase": "Automation / Operations"},
+    {"name": "Zoom", "plan": "Workplace Business & 1TB", "monthly_usd": 460, "used_by": ["Producer", "Creative Director", "ECD", "Leadership"], "phase": "Pre-Production, Onboarding"},
+    {"name": "Lastpass", "plan": "LastPass Business Max", "monthly_usd": 435.50, "used_by": "All Roles", "phase": "Operations"},
+    {"name": "ChatGPT", "plan": "ChatGPT Pro Subscription", "monthly_usd": 200, "used_by": ["Creative Director", "Scriptwriter", "Thumbnail Designer"], "phase": "Pre-Production, Post-Production"},
+    {"name": "Loom", "plan": "Loom Business", "monthly_usd": 144, "used_by": ["Producer", "Creative Director", "PPM", "Leadership"], "phase": "Pre-Production, Post-Production"},
+    {"name": "Zapier", "plan": "Pro plan", "monthly_usd": 133.50, "used_by": ["Operations", "Leadership"], "phase": "Automation / Operations"},
+    {"name": "Nusii", "plan": "Business Plan", "monthly_usd": 129, "used_by": ["Leadership", "Onboarding Team"], "phase": "Onboarding"},
+    {"name": "1OF10.COM", "plan": "1of10 Pro", "monthly_usd": 79, "used_by": ["Creative Director", "Data Analyst"], "phase": "Pre-Production, Post-Production"},
+    {"name": "Descript", "plan": "Creator Plan", "monthly_usd": 70, "used_by": ["Creative Director", "Editor"], "phase": "Post-Production"},
+    {"name": "ViewStats", "plan": "Pro plan", "monthly_usd": 49.99, "used_by": ["Creative Director", "Data Analyst"], "phase": "Pre-Production, Post-Production"},
+    {"name": "ElevenLabs", "plan": "Creator Plan", "monthly_usd": 22, "used_by": ["Editor", "Creative Director"], "phase": "Post-Production"},
+    {"name": "Freepik", "plan": "Premium Plan", "monthly_usd": 20, "used_by": ["Thumbnail Designer", "Editor", "Creative Director"], "phase": "Post-Production"}
+  ]
+}

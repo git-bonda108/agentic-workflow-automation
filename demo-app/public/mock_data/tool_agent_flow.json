@@ -1,0 +1,278 @@
+{
+  "source": "DFM-REFERENCE wish list + dream allocation; HITL gates and agent flow per tool",
+  "utilization_summary": {
+    "source_sheet": "DFM_Current_vs_Dream_Time_Allocations.xlsx",
+    "benefit_beyond_sheet": "Agentic AI delivers the dream allocation by automating coordination and manual checks while keeping humans in the loop. HITL gates ensure quality and control at each tool.",
+    "role_highlights": [
+      "Producers: Coordination 74.5% → 41%. Freed time → Client Strategy 10%, Creative QC 12%, Innovation Lab 10%.",
+      "Production Coordinators: Coordination 70% → 40%. Highest automation ROI. Freed time → Proactive Asset Mgmt 17%, QC 5%.",
+      "Creative Directors: Preproduction 29% → 50%. V1 Review, ClickUp, Post-pub → 0%. More ideation, scripting, packaging.",
+      "Post-Production Managers: Reactive 1:1s → 30% intentional editor management. Video Review 28% → 35%. Hiring+Onboarding 15%.",
+      "Editors: Core editing 66% → 80%. Idle 6.5% → 2%. Revisions 13% → 8%."
+    ],
+    "utilization_table": [
+      { "role": "Producers", "shift": "Coordination 74.5% → 41%", "benefit": "Freed time → Client Strategy 10%, Creative QC 12%, Innovation Lab 10%." },
+      { "role": "Production Coordinators", "shift": "Coordination 70% → 40%", "benefit": "Highest automation ROI. Freed time → Proactive Asset Mgmt 17%, QC 5%." },
+      { "role": "Creative Directors", "shift": "Preproduction 29% → 50%", "benefit": "V1 Review, ClickUp, Post-pub → 0%. More ideation, scripting, packaging." },
+      { "role": "Post-Production Managers", "shift": "Reactive 1:1s → 30% intentional mgmt", "benefit": "Video Review 28% → 35%. Hiring+Onboarding 15%." },
+      { "role": "Editors", "shift": "Core 66% → 80%; Idle 6.5% → 2%", "benefit": "Revisions 13% → 8%. Fewer revision cycles." }
+    ],
+    "quantified_gains": [
+      { "metric": "Producers/PCs (ClickUp+Slack)", "value": "~112h/week saved", "detail": "38%→18%, 40%→20%" },
+      { "metric": "Editors (idle)", "value": "~97h gained", "detail": "6.5%→2%" },
+      { "metric": "Editors (revisions)", "value": "~108h gained", "detail": "13%→8%" },
+      { "metric": "CDs (preproduction)", "value": "~50h gained", "detail": "29%→50%" },
+      { "metric": "CDs (post-pub)", "value": "~14h eliminated", "detail": "6%→0%" }
+    ]
+  },
+  "tools": {
+    "PR-4": {
+      "hitl_gates": [
+        { "stage": "Before create", "description": "Human confirms task title, list, due date, assignee, tags (e.g. Mango, Lemon), and dependencies before ClickUp create_task is called." },
+        { "stage": "After create", "description": "Producer reviews created task in ClickUp." }
+      ],
+      "reasoning": "Agent parses natural language from LLM text input (replaces Slack): extract task name, list/space, due date, assignee, tags (e.g. Mango, Lemon), dependencies. Resolves list name to list_id via workspace hierarchy.",
+      "planning": "1) Parse user text (LLM or fallback). 2) get_workspace_hierarchy or get_list to resolve list_id. 3) Optionally resolve_assignees. 4) HITL: human confirms. 5) create_task with name, description, tags, due_date.",
+      "executing": "Calls ClickUp create_task with name, list_id, description, tags, due_date. Agent logs task to ClickUp after HITL confirm. Input is LLM text box (replaces Slack).",
+      "tool_calls": [
+        { "tool": "LLM text input (replaces Slack)", "purpose": "User types task in plain language; agent parses to extract name, due date, tags (Mango, Lemon), dependencies." },
+        { "tool": "clickup_get_workspace_hierarchy", "purpose": "Resolve list/space from user intent (e.g. 'Mango Pod' → list_id)." },
+        { "tool": "clickup_create_task", "purpose": "Create task with title, list_id, description, tags, due_date, dependencies in description." }
+      ],
+      "outputs_by_stage": [
+        { "stage": "After reasoning", "output": "Parsed: task_name='Script review by Fri', list=Batch 14 — Longform, assignee=editor.d, due=Friday." },
+        { "stage": "After list resolution", "output": "Resolved list_id=li_100101 (Batch 14 — Longform)." },
+        { "stage": "After HITL confirm", "output": "Human approved. Proceeding to create_task." },
+        { "stage": "After create_task", "output": "Task created. task_id=…, url=https://app.clickup.com/t/…" }
+      ],
+      "utilization_estimate": {
+        "hours_saved_per_week": "~48h (6 Producers × 50h × 20% ClickUp reduction)",
+        "percent_shift": "ClickUp 38% → 18%; Coordination 74.5% → 41%",
+        "benefit_beyond_sheet": "Agentic AI reduces manual task creation and batch setup; HITL keeps control. Freed time → Client Strategy (+14%), Creative QC (+9%), Innovation Lab (+10%)."
+      }
+    },
+    "ED-3": {
+      "hitl_gates": [
+        { "stage": "Before assign", "description": "Human confirms suggested assignee(s) before ClickUp update_task (assign) is executed." },
+        { "stage": "After assign", "description": "PC/PPM verifies assignment in ClickUp; editor notified via Slack." }
+      ],
+      "reasoning": "Agent evaluates incoming task: content type, complexity, estimated hours, pod. Queries capacity store and ClickUp list_tasks to get workload per editor. Ranks by skill match and available capacity.",
+      "planning": "1) get open tasks from ClickUp list. 2) Query capacity/skill store (or internal DB). 3) Rank editors by fit. 4) Present top N to human. 5) On confirm, update_task assignees.",
+      "executing": "Calls ClickUp MCP get tasks for list; merges with capacity data; suggests assignees. HITL gate: human picks/confirms. Then update_task to set assignees.",
+      "tool_calls": [
+        { "tool": "clickup_get_task / list tasks", "purpose": "Fetch open tasks and current assignees to compute workload." },
+        { "tool": "Internal capacity/skill store (or mock)", "purpose": "Hours available, shortform vs longform skill per editor." },
+        { "tool": "clickup_update_task", "purpose": "Set assignees on task after HITL confirm." }
+      ],
+      "outputs_by_stage": [
+        { "stage": "After task fetch", "output": "Open tasks in list: 8. Editor A 12h, Editor B 5h, Editor C 22h, Editor D 40h available." },
+        { "stage": "After capacity rank", "output": "Best match: Editor D (40h, longform 4.0). Alternative: Editor C (22h, longform 3.5)." },
+        { "stage": "After HITL confirm", "output": "Human confirmed Editor D. Proceeding to assign." },
+        { "stage": "After assign", "output": "Task LF-1403 assigned to editor.d. Slack notified." }
+      ],
+      "utilization_estimate": {
+        "hours_saved_per_week": "PC: ~64h (40%→20% ClickUp); Editors: ~97h idle reduction (6.5%→2% of 2160h)",
+        "percent_shift": "PC ClickUp 40% → 20%; Editor Idle 6.5% → 2%",
+        "benefit_beyond_sheet": "Agentic assignment distributes workload; HITL prevents wrong assign. Editors spend less time waiting; PCs free time → Proactive Asset Mgmt (+17%), QC (+5%)."
+      }
+    },
+    "CD-1": {
+      "hitl_gates": [
+        { "stage": "Before publish curve", "description": "CD reviews predicted retention curve and drop-off flags before sharing with writer/team." },
+        { "stage": "Optional", "description": "CD may override or accept suggested structural edits." }
+      ],
+      "reasoning": "Agent ingests script + channel context; infers segment boundaries and viewer behavior model. Identifies likely drop-off points and low-engagement sections.",
+      "planning": "1) Load script (Notion/chat). 2) Call retention/analytics model (or API). 3) Generate curve + flags. 4) Suggest edits with rationale. 5) Present to CD.",
+      "executing": "Tool: retention model or ViewStats/YouTube API. Output: curve data, timestamps, suggestions. HITL: CD approves before briefing creator.",
+      "tool_calls": [
+        { "tool": "Notion MCP or script input", "purpose": "Fetch script text and channel context." },
+        { "tool": "Retention/analytics model or API", "purpose": "Predict retention curve and drop-off flags." }
+      ],
+      "outputs_by_stage": [
+        { "stage": "After script load", "output": "Script loaded; 4 segments, ~3 min total." },
+        { "stage": "After model", "output": "Curve generated. Drop-off flags at 0:45, 2:10. Suggestions: shorten intro, add hook at 1:30." }
+      ],
+      "utilization_estimate": {
+        "hours_saved_per_week": "~50h (CDs 6×50h × 21% preproduction shift from manual research)",
+        "percent_shift": "Preproduction 29% → 50%",
+        "benefit_beyond_sheet": "Agentic retention analysis shifts CD time from manual analysis into ideation and scripting; supports 30% faster time-to-first-draft KPI."
+      }
+    },
+    "CD-2": {
+      "hitl_gates": [
+        { "stage": "Before digest send", "description": "CD may review digest summary before it is sent to Slack or team." },
+        { "stage": "Optional", "description": "CD can filter or re-categorize outlier themes." }
+      ],
+      "reasoning": "Agent monitors ~20 competitor channels; detects outlier performance (theme, format, timing). Triangulates and categorizes for weekly digest.",
+      "planning": "1) Fetch competitor data (YouTube/ViewStats API). 2) Compute outliers. 3) Categorize by theme, format, timing. 4) Format digest. 5) Slack MCP or webhook.",
+      "executing": "Tools: YouTube Data API or ViewStats; Slack MCP. Output: digest text + optional link. HITL: CD can approve before broadcast.",
+      "tool_calls": [
+        { "tool": "YouTube Data API / ViewStats", "purpose": "Fetch performance data for competitor channels." },
+        { "tool": "Slack MCP", "purpose": "Send weekly digest to CD or channel." }
+      ],
+      "outputs_by_stage": [
+        { "stage": "After fetch", "output": "20 channels fetched; 5 outlier videos identified." },
+        { "stage": "After digest", "output": "Digest: 5 outliers. Top theme: how-to; format: 8–12 min; timing: Tue–Thu." }
+      ],
+      "utilization_estimate": {
+        "hours_saved_per_week": "Part of CD preproduction 29%→50%; research automated",
+        "percent_shift": "Preproduction (Research) → 50%",
+        "benefit_beyond_sheet": "Outlier ideation automated; more time for creative decisions and packaging. Agentic research replaces manual competitor checks."
+      }
+    },
+    "CD-3": {
+      "hitl_gates": [
+        { "stage": "Before thumbnail brief", "description": "CD reviews score and thumbnail text candidates before sending to designer." },
+        { "stage": "Optional", "description": "CD may adjust curiosity-gap phrases for brand." }
+      ],
+      "reasoning": "Agent analyzes thumbnail + script; scores on curiosity gap, clarity, click-worthiness. Extracts phrases for thumbnail text; cross-references search demand.",
+      "planning": "1) Vision model for thumbnail. 2) Script → phrase extraction. 3) Google Trends/SEO if available. 4) Score + candidates. 5) Present to CD.",
+      "executing": "Tools: vision API, script parser, optional Trends API. Output: score, candidates. HITL: CD approves brief.",
+      "tool_calls": [
+        { "tool": "Vision model (thumbnail)", "purpose": "Score composition, text overlay, tension." },
+        { "tool": "Script parser / LLM", "purpose": "Extract curiosity-gap phrases." },
+        { "tool": "Google Trends / SEO API", "purpose": "Validate search demand for concepts." }
+      ],
+      "outputs_by_stage": [
+        { "stage": "After vision", "output": "Thumbnail score: 7.2/10. Strong hook; text legibility OK." },
+        { "stage": "After phrases", "output": "Candidates: 'The Truth About X', 'Why X Matters'. Trends: 'X' rising." }
+      ],
+      "utilization_estimate": {
+        "hours_saved_per_week": "Part of CD preproduction packaging shift",
+        "percent_shift": "Preproduction (Packaging) → 50%",
+        "benefit_beyond_sheet": "Faster thumbnail strategy; clearer briefs for designers. Agentic packaging supports 50% preproduction target."
+      }
+    },
+    "CD-4": {
+      "hitl_gates": [
+        { "stage": "Before alert", "description": "CD may configure which competitor changes trigger Slack alert (threshold, channels)." },
+        { "stage": "On alert", "description": "CD reviews before/after and delta; decides next action." }
+      ],
+      "reasoning": "Agent detects title/thumbnail/description changes on competitor channels; correlates with performance delta. Surfaces only meaningful changes.",
+      "planning": "1) Poll competitor channels (YouTube/ViewStats). 2) Diff titles/thumbnails/descriptions. 3) Get performance before/after. 4) If delta significant, Slack alert.",
+      "executing": "Tools: YouTube Data API, ViewStats; Slack MCP. Output: before/after, delta. HITL: CD acts on alert.",
+      "tool_calls": [
+        { "tool": "YouTube Data API / ViewStats", "purpose": "Detect changes and performance delta." },
+        { "tool": "Slack MCP", "purpose": "DM or channel alert with before/after." }
+      ],
+      "outputs_by_stage": [
+        { "stage": "After diff", "output": "Channel Y: 2 title changes, 1 thumbnail. Delta: +12% CTR." },
+        { "stage": "After alert", "output": "Slack alert sent to CD with links and delta." }
+      ],
+      "utilization_estimate": {
+        "hours_saved_per_week": "Post-publication monitoring 6% → 0% (~14h for 6 CDs)",
+        "percent_shift": "Post-Publication Monitoring 6% → 0%",
+        "benefit_beyond_sheet": "Competitor A/B monitoring automated; CD time reallocated to preproduction. Agentic surveillance replaces manual channel checks."
+      }
+    },
+    "ED-1": {
+      "hitl_gates": [
+        { "stage": "On sentiment drop", "description": "When sentiment drops below threshold, human reviews video-level and client-level summary before escalating." },
+        { "stage": "Optional", "description": "PPM may adjust threshold or exclude certain clients from alerts." }
+      ],
+      "reasoning": "Agent ingests Frame.io comments; runs sentiment model. Aggregates per video and per client. Flags when below threshold.",
+      "planning": "1) Frame.io API for comments. 2) Sentiment model. 3) Aggregate video + client. 4) Compare to threshold. 5) If low, Slack alert.",
+      "executing": "Tools: Frame.io API, sentiment model; Slack MCP. Output: summary, trend, alert. HITL: PPM reviews before action.",
+      "tool_calls": [
+        { "tool": "Frame.io API", "purpose": "Fetch comments per video/asset." },
+        { "tool": "Sentiment model", "purpose": "Tone and satisfaction score." },
+        { "tool": "Slack MCP", "purpose": "Alert when below threshold." }
+      ],
+      "outputs_by_stage": [
+        { "stage": "After comments", "output": "Video X: 12 comments. Client Y: 3 videos this week." },
+        { "stage": "After sentiment", "output": "Video-level: 2 neutral, 1 positive. Client trend: stable. No alert." }
+      ],
+      "utilization_estimate": {
+        "hours_saved_per_week": "PPM: reactive 1:1s → intentional; Video Review 28%→35%",
+        "percent_shift": "Video Review/QC 28% → 35%; Editor Management → 30% intentional",
+        "benefit_beyond_sheet": "Sentiment visibility reduces reactive 1:1s; PPMs spend more on intentional editor management and hiring. Agentic monitoring surfaces risk early."
+      }
+    },
+    "ED-2": {
+      "hitl_gates": [
+        { "stage": "Before report final", "description": "PPM or QC lead reviews timestamped report before sending to editor; may waive minor items." },
+        { "stage": "On escalate", "description": "Severe violations may require human decision to block publish or request re-export." }
+      ],
+      "reasoning": "Agent runs video through checklist (intro/outro, lower-third, audio, color, b-roll, captions, export). Flags violations with timestamp and severity.",
+      "planning": "1) Load video + checklist (ClickUp/Notion). 2) QC service (internal or 3rd party). 3) Timestamped report. 4) Present to PPM.",
+      "executing": "Tools: QC service API; ClickUp/Notion for checklist. Output: report with timestamps. HITL: PPM approves before sending to editor.",
+      "tool_calls": [
+        { "tool": "ClickUp / Notion MCP", "purpose": "Fetch client-specific QC checklist." },
+        { "tool": "Video QC service (internal or API)", "purpose": "Run checks and return timestamped violations." }
+      ],
+      "outputs_by_stage": [
+        { "stage": "After checklist load", "output": "Checklist: 5 categories, 12 items." },
+        { "stage": "After QC run", "output": "3/5 passed. Violations: 0:00–0:30 intro; 2:00 b-roll gap." }
+      ],
+      "utilization_estimate": {
+        "hours_saved_per_week": "PPM Video Review 28%→35% (quality up); Editors Revisions 13%→8%",
+        "percent_shift": "Video Review/QC 28% → 35%; Editors Core 66% → 80%",
+        "benefit_beyond_sheet": "Automated QC reduces manual review burden; fewer revision cycles. Agentic checklist execution catches issues before CD review."
+      }
+    },
+    "CD-5": {
+      "hitl_gates": [{ "stage": "Before response", "description": "CD may review score and roast before sending to Slack (if not instant command)." }],
+      "reasoning": "Agent scores title + thumbnail on curiosity gap, clarity, click-worthiness; generates roast-style feedback.",
+      "planning": "1) Vision model for thumbnail. 2) Score + roast. 3) Slack response.",
+      "executing": "Tools: vision API; Slack MCP. Output: score (1–10), roast text. HITL optional for batch use.",
+      "tool_calls": [{ "tool": "Vision model", "purpose": "Score thumbnail + title." }, { "tool": "Slack MCP", "purpose": "Send score and roast to channel." }],
+      "outputs_by_stage": [{ "stage": "After vision", "output": "Score: 7/10. Roast: 'Hook is strong; text legibility could improve.'" }]
+    },
+    "CD-6": {
+      "hitl_gates": [{ "stage": "Before suggest", "description": "CD may approve or refine query before agent queries knowledge base." }],
+      "reasoning": "Agent uses client-specific Claude Project or Notion KB; returns on-brand suggestions and references.",
+      "planning": "1) Query + context. 2) Claude Project or Notion MCP. 3) Format response.",
+      "executing": "Tools: Claude Project or Notion MCP. Output: on-brand suggestions. HITL: CD uses output in ideation.",
+      "tool_calls": [{ "tool": "Claude Project / Notion MCP", "purpose": "Query client KB for brand voice and past decisions." }],
+      "outputs_by_stage": [{ "stage": "After query", "output": "On-brand suggestions; 3 past decisions referenced." }]
+    },
+    "CD-7": {
+      "hitl_gates": [{ "stage": "Before final script", "description": "CD or writer reviews AI-rewritten script before handoff." }],
+      "reasoning": "Agent matches draft script to client voice using previous scripts and cadence examples.",
+      "planning": "1) Draft script + voice examples. 2) LLM rewrite. 3) Output script.",
+      "executing": "Tools: LLM; Notion for script storage. Output: rewritten script. HITL: human approves final.",
+      "tool_calls": [{ "tool": "LLM (voice matching)", "purpose": "Rewrite script to match client voice." }, { "tool": "Notion MCP", "purpose": "Read/write scripts." }],
+      "outputs_by_stage": [{ "stage": "After rewrite", "output": "Script rewritten; cadence and vocabulary aligned to client." }]
+    },
+    "CD-8": {
+      "hitl_gates": [{ "stage": "On post", "description": "CD posts title/hook in Slack; agent responds with score (instant). Optional: CD may filter which channels get bot." }],
+      "reasoning": "Agent scores title/hook using channel-specific historical data; returns 1–10 and optional rationale.",
+      "planning": "1) Slack message triggers. 2) Predictive model. 3) Reply in thread.",
+      "executing": "Tools: Slack MCP (receive); predictive API; Slack (reply). Output: score. HITL: CD acts on score.",
+      "tool_calls": [{ "tool": "Slack MCP", "purpose": "Receive message; send score response." }, { "tool": "Predictive model API", "purpose": "Score 1–10." }],
+      "outputs_by_stage": [{ "stage": "After score", "output": "Score: 8/10. Posted in Slack thread." }]
+    },
+    "CD-9": {
+      "hitl_gates": [{ "stage": "Before share", "description": "CD may filter or prioritize outlier dashboard before sharing with team." }],
+      "reasoning": "Agent aggregates outlier content per client niche; maps to content calendar.",
+      "planning": "1) Client/niche config. 2) YouTube/ViewStats. 3) Dashboard or Notion.",
+      "executing": "Tools: YouTube/ViewStats API; Notion or dashboard. Output: client-contextualized outlier list. HITL: CD reviews.",
+      "tool_calls": [{ "tool": "YouTube / ViewStats API", "purpose": "Fetch outlier content for niche." }, { "tool": "Notion or dashboard", "purpose": "Display per-client view." }],
+      "outputs_by_stage": [{ "stage": "After aggregate", "output": "5 outliers this week; mapped to content calendar." }]
+    },
+    "PR-1": {
+      "hitl_gates": [{ "stage": "Before apply", "description": "Producer confirms timeline and milestone dates before writing to ClickUp." }],
+      "reasoning": "Agent computes schedule from content type, deliverables, complexity, review turnaround, capacity.",
+      "planning": "1) Inputs (type, count, complexity). 2) Calculator logic. 3) Output schedule. 4) Optional: ClickUp create.",
+      "executing": "Tools: internal calculator or Make/n8n; ClickUp MCP. Output: proposed schedule. HITL: Producer approves then apply.",
+      "tool_calls": [{ "tool": "Timeline calculator (internal or Make/n8n)", "purpose": "Compute milestones and buffer." }, { "tool": "ClickUp MCP", "purpose": "Create tasks and set dates." }],
+      "outputs_by_stage": [{ "stage": "After calc", "output": "Proposed schedule: 4 milestones, buffer 2 days." }]
+    },
+    "PR-2": {
+      "hitl_gates": [{ "stage": "On alert", "description": "Producer reviews sentiment shift and decides whether to escalate or reach out." }],
+      "reasoning": "Agent aggregates Slack, email, Frame.io per client; builds sentiment profile; flags shifts.",
+      "planning": "1) Ingest comms. 2) Sentiment model. 3) Profile + alerts.",
+      "executing": "Tools: Slack MCP, Gmail API, Frame.io API; sentiment model. Output: profile, trend, alert. HITL: Producer acts on alert.",
+      "tool_calls": [{ "tool": "Slack / Email / Frame.io APIs", "purpose": "Ingest client comms." }, { "tool": "Sentiment model", "purpose": "Profile and trend." }],
+      "outputs_by_stage": [{ "stage": "After ingest", "output": "Client Y: 12 messages; sentiment stable. Client Z: trend down; alert." }]
+    },
+    "PR-3": {
+      "hitl_gates": [{ "stage": "Before send", "description": "PC or Producer confirms templated message and variables before Slack send." }],
+      "reasoning": "Agent fills template with client/project variables from ClickUp or Notion; sends via Slack.",
+      "planning": "1) Template + trigger. 2) Resolve variables (ClickUp/Notion MCP). 3) Send Slack.",
+      "executing": "Tools: Slack MCP; ClickUp or Notion MCP for variables. Output: message sent. HITL: Human confirms template and vars.",
+      "tool_calls": [{ "tool": "Slack MCP", "purpose": "Send templated message." }, { "tool": "ClickUp / Notion MCP", "purpose": "Resolve client, project variables." }],
+      "outputs_by_stage": [{ "stage": "After resolve", "output": "Variables: client=Mango, project=Batch 14. Message ready." }]
+    }
+  }
+}

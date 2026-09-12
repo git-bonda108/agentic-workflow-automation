@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Env and secrets (never commit)
+.env
+.env.local
+.env.*.local
+*.pem
+
+# Build outputs
+dist/
+build/
+*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+ENV/
+.eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+*.log
+npm-debug.log*
+
+# Testing / coverage
+coverage/
+.nyc_output/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Misc
+*.swp
+*.swo
+.cache

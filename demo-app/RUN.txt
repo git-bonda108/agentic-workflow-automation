@@ -1,0 +1,50 @@
+RUN THE DEMO
+============
+
+IMPORTANT — Two different servers:
+  • The APP (what you see in the browser) = FRONTEND on port 3000. You MUST start this.
+  • The BACKEND on port 8000 = optional; only needed for the "Run demo" button to call the API.
+  If you only start the backend, opening localhost will show "connection refused" because
+  the app UI is served by the frontend on http://localhost:3000.
+
+OPEN IN BROWSER:  http://localhost:3000   (always use this for the app)
+
+Option A — From project root (easiest)
+--------------------------------------
+  cd ~/dragonfruit-workflow-agent
+  npm run start
+
+  (Or:  npm run demo  — same thing.)
+  When Vite is ready, open http://localhost:3000. Keep the terminal open.
+
+Option B — From demo-app
+-------------------------
+  cd ~/dragonfruit-workflow-agent/demo-app
+  npm run dev
+
+  When you see "Local: http://localhost:3000", open that URL in your browser.
+
+Option C — Double‑click
+------------------------
+  1. In Finder, go to:  repo folder → demo-app
+  2. Double‑click  START.command
+  3. Wait a few seconds; browser should open to the app. Keep the window open.
+
+---
+First time only: run  npm install  before  npm run dev  (or before using START.command).
+
+If you see "Port 3000 is already in use": run  npm run kill3000  in another terminal, then  npm run dev  again.
+
+---
+Optional — Run demo backend (for "Run demo" to call API and show Mock / Live badge)
+------------------------------------------------------------------------------------
+1. In a second terminal:
+   cd ~/dragonfruit-workflow-agent/demo-app
+   pip install -r backend/requirements.txt
+   npm run backend
+
+   (Or: cd backend && uvicorn main:app --reload --port 8000)
+
+2. With the backend running, "Run demo" on any opportunity page will call the API and display output, reasoning, and source label (Mock / Live (MCP) / Live (API)).
+
+3. For real ClickUp (PR-4, ED-3): put CLICKUP_API_KEY (or CLICKUP_PERSONAL_TOKEN) in a .env file at the project root (repo root .env). The backend loads it automatically and will create real tasks / list real tasks when you run the demo for PR-4 or ED-3. See backend/KEYS.md.

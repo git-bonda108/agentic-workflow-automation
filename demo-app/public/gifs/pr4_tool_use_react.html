@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PR-4 — Tool Use + ReAct (Claude-to-ClickUp)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --df-accent: #FF3B2E; --df-accent-hover: #E53935; --df-muted: #94a3b8; --df-border: #334155; --df-text: #e2e8f0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 20px; font-family: 'Inter', Helvetica, sans-serif; background: #000; color: var(--df-text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; margin: 0 0 4px 0; }
+    .subtitle { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.45rem; color: var(--df-muted); margin-bottom: 12px; max-width: 920px; overflow-wrap: break-word; }
+    .diagram-wrap { background: #0a0a0a; border-radius: 16px; border: 1px solid #222; padding: 20px; max-width: 920px; overflow: hidden; }
+    .diagram-wrap svg { display: block; width: 100%; height: auto; overflow: hidden; }
+    .moving-dash { stroke-dasharray: 10 8; animation: dash 1.2s linear infinite; }
+    @keyframes dash { to { stroke-dashoffset: -36; } }
+    .flow-dot { fill: var(--df-accent); filter: drop-shadow(0 0 4px rgba(255,59,46,0.8)); }
+    .caption { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.4rem; color: var(--df-muted); margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>PR-4 — Tool Use + ReAct (Agent 1 · Claude-to-ClickUp)</h1>
+  <p class="subtitle">OpenAI Agents SDK: Reason → Act (tool call) → Observe → … → HITL → Execute</p>
+
+  <div class="diagram-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 340" width="880" height="340">
+      <defs>
+        <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#FF3B2E"/></marker>
+      </defs>
+      <rect width="880" height="340" fill="#0a0a0a"/>
+
+      <!-- User / Query: LLM text input -->
+      <rect x="20" y="14" width="170" height="58" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="105" y="32" text-anchor="middle" font="600 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">LLM text input</text>
+      <text x="105" y="44" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Create task, tags</text>
+      <text x="105" y="56" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Mango, Lemon</text>
+
+      <path d="M 190 45 L 260 45" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arr)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.4s" repeatCount="indefinite" path="M 190 45 L 260 45"/></circle>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.4s" repeatCount="indefinite" begin="0.35s" path="M 190 45 L 260 45"/></circle>
+
+      <rect x="260" y="15" width="140" height="58" rx="8" fill="#FF3B2E" stroke="#E53935" stroke-width="1.5"/>
+      <text x="330" y="34" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#fff">Agent 1 (Producer)</text>
+      <text x="330" y="48" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="rgba(255,255,255,0.95)">Reason: decompose</text>
+
+      <path d="M 400 45 L 480 45" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arr)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.4s" repeatCount="indefinite" begin="0.2s" path="M 400 45 L 480 45"/></circle>
+
+      <rect x="480" y="12" width="140" height="64" rx="8" fill="#111" stroke="#334155" stroke-width="1.5"/>
+      <text x="550" y="34" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">Tool: ClickUp</text>
+      <text x="550" y="50" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">create_task</text>
+
+      <path d="M 620 45 L 620 120 L 330 120 L 330 76" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arr)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="2.2s" repeatCount="indefinite" path="M 620 45 L 620 120 L 330 120 L 330 76"/></circle>
+
+      <rect x="260" y="122" width="140" height="54" rx="8" fill="#1c1917" stroke="#E53935" stroke-width="2"/>
+      <text x="330" y="140" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#FCA5A5">HITL: Confirm task</text>
+      <text x="330" y="156" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Approve</text>
+
+      <path d="M 330 173 L 330 213" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arr)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1s" repeatCount="indefinite" path="M 330 173 L 330 213"/></circle>
+
+      <rect x="260" y="212" width="140" height="52" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="330" y="230" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">Execute</text>
+      <text x="330" y="244" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">ClickUp + log</text>
+      <text x="330" y="256" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">tags, deps</text>
+
+      <path d="M 400 45 L 400 95 L 680 95 L 680 270 L 408 270" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arr)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="2.5s" repeatCount="indefinite" begin="0.5s" path="M 400 45 L 400 95 L 680 95 L 680 270 L 408 270"/></circle>
+      <rect x="618" y="238" width="126" height="52" rx="8" fill="#111" stroke="#334155" stroke-width="1.5"/>
+      <text x="681" y="256" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">LLM (input)</text>
+      <text x="681" y="268" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">parse → route</text>
+
+      <text x="440" y="68" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#64748B">tool call</text>
+      <text x="465" y="103" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#64748B">result</text>
+    </svg>
+  </div>
+  <p class="caption">Batch 2 · Moving dashed arrows + dots show info flow.</p>
+</body>
+</html>

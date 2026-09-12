@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dragonfruit — 8 High-Priority Tools (Animated)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --df-bg: #FAFAFA;
+      --df-surface: #FFFFFF;
+      --df-text: #1a1a1a;
+      --df-muted: #64748B;
+      --df-accent: #FF3B2E;
+      --df-accent-hover: #E53935;
+      --df-success: #0d9488;
+      --df-border: #E2E8F0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 24px;
+      font-family: 'Inter', Helvetica, sans-serif;
+      background: #000;
+      color: #e2e8f0;
+      min-height: 100vh;
+    }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; margin: 0 0 4px 0; text-align: center; }
+    .subtitle { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.4rem; color: #94a3b8; margin-bottom: 24px; text-align: center; overflow-wrap: break-word; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #111;
+      border-radius: 12px;
+      border: 1px solid #334155;
+      padding: 12px 14px 12px 18px;
+      position: relative;
+      overflow: hidden;
+      min-height: 120px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--df-accent);
+      animation: bar-pulse 2.2s cubic-bezier(0.4,0,0.2,1) infinite;
+    }
+    .card.cd { --role: #FF3B2E; }
+    .card.ed { --role: #0d9488; }
+    .card.pr { --role: #E53935; }
+    .card.cd::before { background: var(--role); }
+    .card.ed::before { background: var(--role); }
+    .card.pr::before { background: var(--role); }
+    @keyframes bar-pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+    .card-id { font-family: 'Bebas Neue', sans-serif; font-size: 0.38rem; font-weight: 400; color: #FCA5A5; margin-bottom: 2px; }
+    .card-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.42rem;
+      font-weight: 400;
+      color: #e2e8f0;
+      margin-bottom: 4px;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.2;
+      max-width: 100%;
+    }
+    .card-role { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.38rem; color: #94a3b8; margin-bottom: 4px; }
+    .card-io {
+      font-size: 0.36rem;
+      padding: 4px 0 0 0;
+      border-top: 1px solid #334155;
+      color: #94a3b8;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      line-height: 1.3;
+      max-width: 100%;
+    }
+    .card-io strong { color: #e2e8f0; }
+    .dot-row { display: flex; gap: 4px; margin-top: 8px; justify-content: center; }
+    .dot-row span {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--df-accent);
+      animation: dot-blink 1.2s ease-in-out infinite;
+    }
+    .dot-row span:nth-child(2) { animation-delay: 0.2s; }
+    .dot-row span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes dot-blink {
+      0%, 100% { opacity: 0.3; transform: scale(0.8); }
+      50% { opacity: 1; transform: scale(1); }
+    }
+    .caption { font-size: 0.5rem; color: var(--df-muted); margin-top: 20px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>8 High-Priority Tools — Input → Agent → Output</h1>
+  <p class="subtitle">Quick wins + high-priority wish list · Dragonfruit proposal</p>
+
+  <div class="grid">
+    <div class="card cd">
+      <div class="card-id">CD-1</div>
+      <div class="card-name">Predictive Retention</div>
+      <div class="card-role">CD Agent</div>
+      <div class="card-io"><strong>In:</strong> Script, channel context<br><strong>Out:</strong> Retention curve, drop-off flags</div>
+      <div class="dot-row"><span></span><span></span><span></span></div>
+    </div>
+    <div class="card cd">
+      <div class="card-id">CD-2</div>
+      <div class="card-name">Outlier Ideation</div>
+      <div class="card-role">CD Agent</div>
+      <div class="card-io"><strong>In:</strong> ~20 competitor channels<br><strong>Out:</strong> Weekly digest, themes</div>
+      <div class="dot-row"><span></span><span></span><span></span></div>
+    </div>
+    <div class="card cd">
+      <div class="card-id">CD-3</div>
+      <div class="card-name">Packaging & Thumbnail</div>
+      <div class="card-role">CD Agent</div>
+      <div class="card-io"><strong>In:</strong> Script, competitor thumbnails<br><strong>Out:</strong> Score, thumbnail text</div>
+      <div class="dot-row"><span></span><span></span><span></span></div>
+    </div>
+    <div class="card cd">
+      <div class="card-id">CD-4</div>
+      <div class="card-name">A/B Test Monitor</div>
+      <div class="card-role">CD Agent</div>
+      <div class="card-io"><strong>In:</strong> Competitor list<br><strong>Out:</strong> Slack alert, before/after</div>
+      <div class="dot-row"><span></span><span></span><span></span></div>
+    </div>
+    <div class="card ed">
+      <div class="card-id">ED-1</div>
+      <div class="card-name">Frame.io Sentiment</div>
+      <div class="card-role">PPM / Editor</div>
+      <div class="card-io"><strong>In:</strong> Frame.io comments<br><strong>Out:</strong> Sentiment score, alert</div>
+      <div class="dot-row"><span></span><span></span><span></span></div>
+    </div>
+    <div class="card ed">
+      <div class="card-id">ED-2</div>
+      <div class="card-name">Automated QC</div>
+      <div class="card-role">PPM Agent</div>
+      <div class="card-io"><strong>In:</strong> Video, checklist<br><strong>Out:</strong> Timestamped report</div>
+      <div class="dot-row"><span></span><span></span><span></span></div>
+    </div>
+    <div class="card ed">
+      <div class="card-id">ED-3</div>
+      <div class="card-name">Capacity Assignment</div>
+      <div class="card-role">Producer / PC</div>
+      <div class="card-io"><strong>In:</strong> ClickUp, workload<br><strong>Out:</strong> Suggested assignees (HITL)</div>
+      <div class="dot-row"><span></span><span></span><span></span></div>
+    </div>
+    <div class="card pr">
+      <div class="card-id">PR-4</div>
+      <div class="card-name">Claude-to-ClickUp</div>
+      <div class="card-role">Producer Agent</div>
+      <div class="card-io"><strong>In:</strong> Natural language<br><strong>Out:</strong> Task created (HITL)</div>
+      <div class="dot-row"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <p class="caption">Each tool: input from your stack → agent/tool use → output.</p>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ED-3 — ReAct + HITL (Capacity-Based Assignment)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --df-accent: #FF3B2E; --df-accent-hover: #E53935; --df-muted: #94a3b8; --df-border: #334155; --df-text: #e2e8f0; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 20px; font-family: 'Inter', Helvetica, sans-serif; background: #000; color: var(--df-text); min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; margin: 0 0 4px 0; }
+    .subtitle { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.45rem; color: var(--df-muted); margin-bottom: 12px; max-width: 920px; overflow-wrap: break-word; }
+    .diagram-wrap { background: #0a0a0a; border-radius: 16px; border: 1px solid #222; padding: 20px; max-width: 920px; overflow: hidden; }
+    .diagram-wrap svg { display: block; width: 100%; height: auto; overflow: hidden; }
+    .moving-dash { stroke-dasharray: 10 8; animation: dash 1.2s linear infinite; }
+    @keyframes dash { to { stroke-dashoffset: -36; } }
+    .flow-dot { fill: var(--df-accent); filter: drop-shadow(0 0 4px rgba(255,59,46,0.8)); }
+    .caption { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.4rem; color: var(--df-muted); margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>ED-3 — ReAct + HITL (Agent 4 · Capacity-Based Assignment)</h1>
+  <p class="subtitle">OpenAI Agents SDK: Reason (workload) → Act (tools) → Observe → Suggest → HITL confirm assignee</p>
+
+  <div class="diagram-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 320" width="880" height="320">
+      <defs>
+        <marker id="arr2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#FF3B2E"/></marker>
+      </defs>
+      <rect width="880" height="320" fill="#0a0a0a"/>
+
+      <rect x="20" y="25" width="150" height="50" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="95" y="44" text-anchor="middle" font="600 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">New task in ClickUp</text>
+      <text x="95" y="58" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Assignee needed</text>
+
+      <path d="M 170 52 L 250 52" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arr2)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.3s" repeatCount="indefinite" path="M 170 52 L 250 52"/></circle>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.3s" repeatCount="indefinite" begin="0.4s" path="M 170 52 L 250 52"/></circle>
+
+      <rect x="250" y="15" width="150" height="68" rx="8" fill="#FF3B2E" stroke="#E53935" stroke-width="1.5"/>
+      <text x="325" y="34" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#fff">Agent 4 (PPM)</text>
+      <text x="325" y="48" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="rgba(255,255,255,0.95)">Reason: skill, pod,</text>
+      <text x="325" y="62" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="rgba(255,255,255,0.9)">workload → tools</text>
+
+      <path d="M 400 52 L 480 52" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arr2)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0.2s" path="M 400 52 L 480 52"/></circle>
+
+      <rect x="480" y="25" width="140" height="68" rx="8" fill="#111" stroke="#334155" stroke-width="1.5"/>
+      <text x="550" y="44" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">Tool: Capacity DB</text>
+      <text x="550" y="58" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">workload, skill, pod</text>
+      <text x="550" y="72" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">+ ClickUp list</text>
+
+      <path d="M 620 62 L 620 128 L 325 128 L 325 86" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arr2)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="2s" repeatCount="indefinite" path="M 620 62 L 620 128 L 325 128 L 325 86"/></circle>
+
+      <rect x="250" y="133" width="150" height="46" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="325" y="152" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">Suggest assignees</text>
+      <text x="325" y="165" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Editor A, B (ranked)</text>
+
+      <path d="M 325 179 L 325 222" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arr2)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1s" repeatCount="indefinite" path="M 325 179 L 325 222"/></circle>
+
+      <rect x="250" y="222" width="150" height="50" rx="8" fill="#1c1917" stroke="#E53935" stroke-width="2"/>
+      <text x="325" y="242" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#FCA5A5">HITL: Confirm assignee</text>
+      <text x="325" y="256" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Human picks</text>
+
+      <path d="M 325 272 L 325 288 L 550 288 L 550 268" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#arr2)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.6s" repeatCount="indefinite" begin="0.3s" path="M 325 272 L 325 288 L 550 288 L 550 268"/></circle>
+
+      <rect x="480" y="245" width="140" height="46" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="550" y="264" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">Execute</text>
+      <text x="550" y="278" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">ClickUp assign_task</text>
+
+      <text x="440" y="42" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#64748B">tool call</text>
+      <text x="470" y="116" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#64748B">result</text>
+    </svg>
+  </div>
+  <p class="caption">Batch 2 · Moving dashed arrows + dots.</p>
+</body>
+</html>

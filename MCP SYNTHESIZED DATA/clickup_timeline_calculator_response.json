@@ -1,0 +1,108 @@
+{
+  "_meta": {
+    "source": "clickup_mcp + internal_calculator",
+    "tool": "PR-1 Timeline Calculator",
+    "mode": "mock",
+    "description": "PR-1 agent computes project timeline and creates ClickUp tasks with due dates"
+  },
+  "agent_input": {
+    "natural_language": "Calculate timeline for Mango Pod Batch 15: 4 longform videos, 6 shortform, high complexity, client review turnaround 3 days, publish date April 25",
+    "parsed": {
+      "pod": "Mango",
+      "batch": 15,
+      "longform_count": 4,
+      "shortform_count": 6,
+      "complexity": "High",
+      "client_review_days": 3,
+      "publish_date": "2026-04-25"
+    }
+  },
+  "agent_reasoning": {
+    "step": "Timeline Computation",
+    "thought": "Working backwards from April 25 publish date. High complexity longform = 18h avg edit time. Need to account for 3 review cycles (PPM, CD, Client) with 3-day client turnaround.",
+    "timeline": {
+      "publish_date": "2026-04-25",
+      "final_review_deadline": "2026-04-22",
+      "client_review_start": "2026-04-19",
+      "edit_v3_deadline": "2026-04-17",
+      "cd_review_v2": "2026-04-15",
+      "edit_v2_deadline": "2026-04-12",
+      "ppm_review_v1": "2026-04-10",
+      "cd_review_v1": "2026-04-08",
+      "edit_v1_deadline": "2026-04-05",
+      "rough_cut_deadline": "2026-03-31",
+      "footage_received_by": "2026-03-28",
+      "script_approved_by": "2026-03-25",
+      "ideation_start": "2026-03-18",
+      "buffer_days": 3,
+      "total_production_days": 38
+    }
+  },
+  "clickup_tasks_created": [
+    {
+      "name": "Batch 15 \u2014 Ideation & Scripts",
+      "start": "2026-03-18",
+      "due": "2026-03-25",
+      "assignee": "cd.a"
+    },
+    {
+      "name": "Batch 15 \u2014 Footage Collection",
+      "start": "2026-03-25",
+      "due": "2026-03-28",
+      "assignee": "producer.a"
+    },
+    {
+      "name": "Batch 15 \u2014 Rough Cuts (4 LF)",
+      "start": "2026-03-28",
+      "due": "2026-03-31",
+      "assignee": "TBD (ED-2 assigns)"
+    },
+    {
+      "name": "Batch 15 \u2014 Edit V1",
+      "start": "2026-03-31",
+      "due": "2026-04-05",
+      "assignee": "TBD"
+    },
+    {
+      "name": "Batch 15 \u2014 CD/PPM Review V1",
+      "start": "2026-04-05",
+      "due": "2026-04-10",
+      "assignee": "cd.a, ppm.a"
+    },
+    {
+      "name": "Batch 15 \u2014 Edit V2",
+      "start": "2026-04-10",
+      "due": "2026-04-12",
+      "assignee": "TBD"
+    },
+    {
+      "name": "Batch 15 \u2014 CD Review V2",
+      "start": "2026-04-12",
+      "due": "2026-04-15",
+      "assignee": "cd.a"
+    },
+    {
+      "name": "Batch 15 \u2014 Edit V3 + Final",
+      "start": "2026-04-15",
+      "due": "2026-04-17",
+      "assignee": "TBD"
+    },
+    {
+      "name": "Batch 15 \u2014 Client Review",
+      "start": "2026-04-19",
+      "due": "2026-04-22",
+      "assignee": "producer.a"
+    },
+    {
+      "name": "Batch 15 \u2014 Publish",
+      "start": "2026-04-25",
+      "due": "2026-04-25",
+      "assignee": "pc.a"
+    }
+  ],
+  "agent_confirmation": {
+    "message": "\u2705 Timeline computed for Mango Pod Batch 15\n\u2022 38 production days (incl. 3-day buffer)\n\u2022 10 milestone tasks created in ClickUp\n\u2022 Ideation starts: March 18\n\u2022 Publish: April 25\n\n\u26a0\ufe0f HITL Gate: Producer must review and confirm timeline before team notification.",
+    "hitl_required": true,
+    "hitl_gate": "PR-1-TIMELINE-CONFIRM"
+  }
+}

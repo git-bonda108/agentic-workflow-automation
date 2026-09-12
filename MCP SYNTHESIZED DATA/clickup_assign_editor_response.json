@@ -1,0 +1,90 @@
+{
+  "_meta": {
+    "source": "clickup_mcp",
+    "tool": "update_task",
+    "mode": "mock",
+    "description": "Response when ED-2 (Capacity-Based Assignment) agent assigns an editor to a task"
+  },
+  "agent_input": {
+    "trigger": "New task LF-1403 moved to 'Ready to Start' in Mango Pod",
+    "task_id": "task_new_1403",
+    "task_name": "LF-1403 \u2014 Why Nobody Can Copy This Strategy",
+    "requirements": {
+      "content_type": "longform",
+      "complexity": "High",
+      "estimated_hours": 16,
+      "pod": "Mango"
+    }
+  },
+  "agent_reasoning": {
+    "step": "ReAct \u2014 Capacity Analysis",
+    "thought": "Task requires longform specialization, 16h capacity, high complexity. Checking Mango Pod editors first, then cross-pod.",
+    "candidates_evaluated": [
+      {
+        "editor": "editor.a",
+        "pod": "Mango",
+        "hours_available": 12,
+        "longform_skill": 4.2,
+        "verdict": "\u274c Insufficient capacity (12h < 16h needed)"
+      },
+      {
+        "editor": "editor.b",
+        "pod": "Mango",
+        "hours_available": 5,
+        "longform_skill": 4.5,
+        "verdict": "\u274c Insufficient capacity (5h < 16h needed)"
+      },
+      {
+        "editor": "editor.c",
+        "pod": "Lemon",
+        "hours_available": 22,
+        "longform_skill": 3.5,
+        "verdict": "\u26a0\ufe0f Sufficient capacity but lower longform skill (3.5)"
+      },
+      {
+        "editor": "editor.d",
+        "pod": "Lemon",
+        "hours_available": 40,
+        "longform_skill": 4.0,
+        "verdict": "\u2705 Best match \u2014 full capacity, strong longform skill (4.0), cross-pod"
+      }
+    ],
+    "selected": "editor.d",
+    "rationale": "editor.d has full 40h availability and longform skill rating of 4.0. Cross-pod assignment from Lemon, but no Mango editors have sufficient capacity this week."
+  },
+  "mcp_request": {
+    "tool": "update_task",
+    "arguments": {
+      "taskId": "task_new_1403",
+      "assignees": {
+        "add": [
+          "u_504"
+        ]
+      },
+      "status": "In Progress"
+    }
+  },
+  "mcp_response": {
+    "id": "task_new_1403",
+    "name": "LF-1403 \u2014 Why Nobody Can Copy This Strategy",
+    "status": {
+      "status": "In Progress",
+      "color": "#f9d900"
+    },
+    "assignees": [
+      {
+        "id": "u_504",
+        "username": "editor.d"
+      }
+    ]
+  },
+  "agent_confirmation": {
+    "message": "\u2705 Assigned **editor.d** to LF-1403\n\u2022 Capacity: 40h available (needs 16h)\n\u2022 Longform skill: 4.0/5.0\n\u2022 Cross-pod: Lemon \u2192 Mango\n\n\u26a0\ufe0f HITL Gate: Cross-pod assignment requires PC confirmation.",
+    "hitl_required": true,
+    "hitl_gate": "ED-2-CROSS-POD",
+    "slack_notification": {
+      "channel": "#mango-pod",
+      "message": "\ud83e\udd16 *ED-2 Agent*: Assigned editor.d (Lemon Pod) to LF-1403 \u2014 cross-pod due to Mango capacity constraints. @pc.a please confirm."
+    }
+  }
+}

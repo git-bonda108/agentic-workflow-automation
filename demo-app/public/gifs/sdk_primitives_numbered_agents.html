@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenAI Agents SDK — Primitives & Numbered Agents</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --df-accent: #FF3B2E; --df-accent-hover: #E53935; --df-muted: #64748B; --df-border: #E2E8F0; --df-text: #1a1a1a; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 20px; font-family: 'Inter', Helvetica, sans-serif; background: #000; color: #e2e8f0; min-height: 100vh; display: flex; flex-direction: column; align-items: center; }
+    h1 { font-family: 'Bebas Neue', sans-serif; font-size: 0.75rem; font-weight: 400; letter-spacing: 0.02em; margin: 0 0 4px 0; }
+    .subtitle { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.4rem; color: #94a3b8; margin-bottom: 12px; max-width: 920px; overflow-wrap: break-word; }
+    .diagram-wrap { background: #0a0a0a; border-radius: 16px; border: 1px solid #222; padding: 20px; max-width: 920px; overflow: hidden; }
+    .diagram-wrap svg { display: block; width: 100%; height: auto; overflow: hidden; }
+    .moving-dash { stroke-dasharray: 10 8; animation: dash 1.2s linear infinite; }
+    @keyframes dash { to { stroke-dashoffset: -36; } }
+    .flow-dot { fill: var(--df-accent); filter: drop-shadow(0 0 4px rgba(255,59,46,0.8)); }
+    .caption { font-family: 'Inter', Helvetica, sans-serif; font-size: 0.4rem; color: #94a3b8; margin-top: 12px; }
+  </style>
+</head>
+<body>
+  <h1>OpenAI Agents SDK — Primitives (Dragonfruit)</h1>
+  <p class="subtitle">Agents = LLM + instructions + tools · Handoffs = agents as tools · HITL</p>
+
+  <div class="diagram-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 400" width="860" height="400">
+      <defs>
+        <marker id="m1" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#FF3B2E"/></marker>
+      </defs>
+      <rect width="860" height="400" fill="#0a0a0a"/>
+
+      <text x="430" y="28" text-anchor="middle" font="600 4px 'Inter', sans-serif" fill="#94a3b8">Numbered role agents — handoffs = agent as tool</text>
+
+      <rect x="30" y="50" width="130" height="52" rx="8" fill="#FF3B2E" stroke="#E53935" stroke-width="1.5"/>
+      <text x="95" y="68" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#fff">1 Producer</text>
+      <text x="95" y="82" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="rgba(255,255,255,0.95)">PR-4, ClickUp</text>
+
+      <!-- Arrow 1→2 -->
+      <path d="M 160 78 L 210 78" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#m1)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.2s" repeatCount="indefinite" path="M 160 78 L 210 78"/></circle>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0.4s" path="M 160 78 L 210 78"/></circle>
+
+      <rect x="210" y="50" width="130" height="52" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="275" y="68" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">2 PC</text>
+      <text x="275" y="82" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Status, Slack</text>
+
+      <path d="M 340 78 L 390 78" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#m1)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0.2s" path="M 340 78 L 390 78"/></circle>
+
+      <rect x="390" y="50" width="130" height="52" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="455" y="68" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">3 CD</text>
+      <text x="455" y="82" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Retention, A/B</text>
+
+      <!-- Arrow 3→4 -->
+      <path d="M 520 78 L 570 78" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#m1)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0.3s" path="M 520 78 L 570 78"/></circle>
+
+      <rect x="570" y="50" width="130" height="52" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="635" y="68" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">4 PPM</text>
+      <text x="635" y="82" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">QC, capacity</text>
+
+      <!-- Arrow 4→5 -->
+      <path d="M 700 78 L 750 78" stroke="#FF3B2E" stroke-width="2" fill="none" marker-end="url(#m1)" class="moving-dash"/>
+      <circle r="5" class="flow-dot"><animateMotion dur="1.2s" repeatCount="indefinite" begin="0.15s" path="M 700 78 L 750 78"/></circle>
+
+      <rect x="750" y="50" width="100" height="52" rx="8" fill="#111" stroke="#FF3B2E" stroke-width="2"/>
+      <text x="800" y="68" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">5 Editor</text>
+      <text x="800" y="82" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Consumer</text>
+
+      <text x="430" y="148" text-anchor="middle" font="600 4px 'Inter', sans-serif" fill="#94a3b8">Agent loop: Reason → Tool → Result → Response</text>
+      <path d="M 80 165 L 780 165" stroke="#FF3B2E" stroke-width="2" fill="none" stroke-dasharray="12 10" class="moving-dash"/>
+      <circle r="6" class="flow-dot"><animateMotion dur="2.5s" repeatCount="indefinite" path="M 80 165 L 780 165"/></circle>
+      <circle r="6" class="flow-dot"><animateMotion dur="2.5s" repeatCount="indefinite" begin="0.8s" path="M 80 165 L 780 165"/></circle>
+      <circle r="6" class="flow-dot"><animateMotion dur="2.5s" repeatCount="indefinite" begin="1.6s" path="M 80 165 L 780 165"/></circle>
+
+      <text x="430" y="208" text-anchor="middle" font="600 4px 'Inter', sans-serif" fill="#94a3b8">Tools (function + MCP)</text>
+      <rect x="40" y="218" width="110" height="32" rx="6" fill="#111" stroke="#334155" stroke-width="1"/>
+      <text x="95" y="234" text-anchor="middle" font="600 4px 'Inter', sans-serif" fill="#e2e8f0">ClickUp</text>
+      <rect x="165" y="218" width="110" height="32" rx="6" fill="#111" stroke="#334155" stroke-width="1"/>
+      <text x="220" y="234" text-anchor="middle" font="600 4px 'Inter', sans-serif" fill="#e2e8f0">Slack</text>
+      <rect x="290" y="218" width="110" height="32" rx="6" fill="#111" stroke="#334155" stroke-width="1"/>
+      <text x="345" y="234" text-anchor="middle" font="600 4px 'Inter', sans-serif" fill="#e2e8f0">Frame.io</text>
+      <rect x="415" y="218" width="110" height="32" rx="6" fill="#111" stroke="#334155" stroke-width="1"/>
+      <text x="470" y="234" text-anchor="middle" font="600 4px 'Inter', sans-serif" fill="#e2e8f0">Notion</text>
+      <rect x="540" y="218" width="110" height="32" rx="6" fill="#111" stroke="#334155" stroke-width="1"/>
+      <text x="595" y="234" text-anchor="middle" font="600 4px 'Bebas Neue', sans-serif" fill="#e2e8f0">QC · Cap</text>
+
+      <!-- Arrows from agents to tools (1 to ClickUp, etc.) -->
+      <path d="M 95 106 L 95 218" stroke="#FF3B2E" stroke-width="1.5" fill="none" class="moving-dash"/>
+      <circle r="4" class="flow-dot"><animateMotion dur="1.8s" repeatCount="indefinite" path="M 95 106 L 95 218"/></circle>
+      <path d="M 275 106 L 220 218" stroke="#FF3B2E" stroke-width="1.5" fill="none" class="moving-dash"/>
+      <circle r="4" class="flow-dot"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0.5s" path="M 275 106 L 220 218"/></circle>
+      <path d="M 455 106 L 345 218" stroke="#FF3B2E" stroke-width="1.5" fill="none" class="moving-dash"/>
+      <circle r="4" class="flow-dot"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0.3s" path="M 455 106 L 345 218"/></circle>
+      <path d="M 635 106 L 595 218" stroke="#FF3B2E" stroke-width="1.5" fill="none" class="moving-dash"/>
+      <circle r="4" class="flow-dot"><animateMotion dur="1.8s" repeatCount="indefinite" begin="0.7s" path="M 635 106 L 595 218"/></circle>
+
+      <rect x="40" y="278" width="780" height="48" rx="8" fill="#1c1917" stroke="#E53935" stroke-width="1.5"/>
+      <text x="430" y="294" text-anchor="middle" font="700 4px 'Bebas Neue', sans-serif" fill="#FCA5A5">HITL: create · assign · message · QC</text>
+      <text x="430" y="308" text-anchor="middle" font="500 4px 'Inter', sans-serif" fill="#94a3b8">Human approves before create / send</text>
+    </svg>
+  </div>
+  <p class="caption">Batch 1 · Moving dashed arrows + dots. Record as GIF.</p>
+</body>
+</html>

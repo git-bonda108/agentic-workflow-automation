@@ -1,0 +1,16 @@
+{
+  "source": "DFM AI Tool Wish List — tools grouped by core role for Phase → Role → Opportunities",
+  "role_tool_ids": {
+    "Producer": ["PR-1", "PR-2", "PR-3", "PR-4"],
+    "Production Coordinator": ["PR-3", "PR-4", "ED-3"],
+    "Creative Director": ["CD-1", "CD-2", "CD-3", "CD-4", "CD-5", "CD-6", "CD-7", "CD-8", "CD-9"],
+    "Post-Production Manager": ["ED-1", "ED-2", "ED-3"],
+    "Editor": ["ED-1", "ED-2", "ED-3"]
+  },
+  "priority_by_tool_id": {
+    "CD-1": "HIGH", "CD-2": "HIGH", "CD-3": "HIGH", "CD-4": "HIGH",
+    "ED-1": "HIGH", "ED-2": "HIGH", "ED-3": "HIGH", "PR-4": "HIGH",
+    "CD-5": "MEDIUM", "CD-6": "MEDIUM", "CD-7": "MEDIUM", "CD-8": "MEDIUM", "CD-9": "MEDIUM",
+    "PR-1": "MEDIUM", "PR-2": "MEDIUM", "PR-3": "MEDIUM"
+  }
+}

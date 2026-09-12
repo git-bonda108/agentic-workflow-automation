@@ -1,0 +1,231 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  background: #ffffff;
+  color: #1f2937;
+  -webkit-font-smoothing: antialiased;
+  text-transform: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  text-transform: none;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: #1f2937;
+}
+
+h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 40px;
+  color: #1f2937;
+}
+
+h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #374151;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #4b5563;
+}
+
+body, #root, #root * {
+  text-transform: none;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  color: var(--df-accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--df-accent-hover);
+  text-decoration: underline;
+}
+
+button:focus-visible,
+a:focus-visible,
+[tabindex="0"]:focus-visible {
+  outline: var(--df-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Page container — constrained readable width */
+.page-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 36px 24px;
+}
+
+.content {
+  max-width: 72ch;
+}
+
+/* Section */
+.section {
+  margin-top: 48px;
+}
+
+.section-title {
+  margin-bottom: var(--space-sm);
+}
+
+.section-description {
+  margin-bottom: var(--space-md);
+}
+
+/* Card system */
+.card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 22px;
+  margin-top: 20px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.card:hover {
+  border-color: #d1d5db;
+}
+
+/* Tags */
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: #f3f4f6;
+  margin-right: 6px;
+  color: #374151;
+}
+
+.tag-high {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.tag-medium {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Diagram / visualization container */
+.diagram-container {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 28px;
+  margin-top: 24px;
+}
+
+/* Pipeline visualization — horizontal execution stages */
+.pipeline-container {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 28px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  flex-wrap: wrap;
+}
+
+.pipeline-node {
+  min-width: 160px;
+  flex-shrink: 0;
+  padding: 14px 18px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  text-align: center;
+}
+
+.pipeline-node.idle {
+  background: #ffffff;
+}
+
+.pipeline-node.running {
+  border-color: #f97316;
+  box-shadow: 0 0 0 3px rgba(249,115,22,0.15);
+}
+
+.pipeline-node.waiting {
+  background: #fffbeb;
+  border-color: #f59e0b;
+}
+
+.pipeline-node.done {
+  background: #f0fdf4;
+  border-color: #22c55e;
+}
+
+.pipeline-node-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.pipeline-node-sub {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.pipeline-arrow {
+  height: 2px;
+  background: #e5e7eb;
+  flex: 1;
+  min-width: 12px;
+}
+
+.pipeline-arrow.active {
+  background: #22c55e;
+}
+
+/* Execution log */
+.execution-log {
+  margin-top: 24px;
+  font-size: 13px;
+  color: #374151;
+  padding: var(--space-md);
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.execution-log ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.execution-log li {
+  margin-bottom: 4px;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
