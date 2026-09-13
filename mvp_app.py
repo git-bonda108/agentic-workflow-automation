@@ -546,7 +546,7 @@ elif nav == "📊 Time Allocations (Current vs Dream)":
     st.markdown("""
     <div class="df-hero">
         <h1>Current vs Dream Time Allocation</h1>
-        <p>By role — source: DFM Current vs. Dream Time Allocations (50h week).</p>
+        <p>By role — source: agency time-allocation reference (50h week).</p>
     </div>
     """, unsafe_allow_html=True)
 
@@ -603,7 +603,7 @@ elif nav == "🔄 Pipeline Overview":
     st.markdown("""
     <div class="df-hero">
         <h1>Production Pipeline Overview</h1>
-        <p>Source: DFM Current Pipeline (with Feedback).</p>
+        <p>Source: agency pipeline reference (with feedback).</p>
     </div>
     """, unsafe_allow_html=True)
 

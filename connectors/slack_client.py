@@ -1,5 +1,5 @@
 """
-Slack connector for Dragonfruit demo.
+Slack connector for the workflow demo.
 Uses SLACK_BOT_TOKEN when set; list channels and send messages.
 """
 from __future__ import annotations
