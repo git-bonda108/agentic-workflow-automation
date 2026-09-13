@@ -43,7 +43,7 @@ We recommend **[OpenAI Agents SDK](https://openai.github.io/openai-agents-python
 ## 3. What we are not doing in MVP
 
 - **No real Notion/Frame.io/Dropbox APIs in MVP** — Stubs or mock only; add in later batches.
-- **MCP:** We *do* have a **Mock Data MCP server** (`mcp_servers/dragonfruit_mock_server.py`) that exposes pipeline, time allocations, pods, tool stack, wishlist, and AI survey. ClickUp/Notion/Slack can use official or community MCP servers; we keep function tools in MVP and can add those MCPs in Batch 5.
+- **MCP:** We *do* have a **Mock Data MCP server** (`mcp_servers/agency_mock_server.py`) that exposes pipeline, time allocations, pods, tool stack, wishlist, and AI survey. ClickUp/Notion/Slack can use official or community MCP servers; we keep function tools in MVP and can add those MCPs in Batch 5.
 - **No auth UI** — API keys via env vars or `.env`; no OAuth flow in MVP.
 - **No production deployment** — Local/Streamlit run; deployment is a separate batch.
 
