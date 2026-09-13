@@ -1,6 +1,6 @@
 {
   "source": "DFM Current Pipeline (XLSX) — RESPONSIBLE column normalized to 5 core roles",
-  "pipeline_name": "Dragonfruit Production Pipeline (with Feedback)",
+  "pipeline_name": "Production Pipeline (with Feedback)",
   "core_roles": ["Producer", "Production Coordinator", "Creative Director", "Post-Production Manager", "Editor"],
   "phases": [
     {

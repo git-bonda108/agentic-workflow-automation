@@ -7,7 +7,7 @@ import os
 from pathlib import Path
 from typing import List, Optional
 
-# Load .env from DRAGONFRUIT root (parent of demo-app) or backend/.env
+# Load .env from project root (parent of demo-app) or backend/.env
 for _path in [Path(__file__).resolve().parent.parent.parent / ".env", Path(__file__).resolve().parent / ".env"]:
     if _path.exists():
         try:
@@ -121,7 +121,7 @@ def create_task(
 ) -> Optional[dict]:
     """POST /list/{list_id}/task. Returns task dict with url if successful."""
     import httpx
-    payload = {"name": name[:255], "description": description or "Created via Dragonfruit Agentic AI Pipeline Demo."}
+    payload = {"name": name[:255], "description": description or "Created via AIGenX Agentic AI Pipeline Demo."}
     if tags:
         payload["tags"] = [str(t)[:64] for t in tags[:10]]
     if due_date_ms is not None:

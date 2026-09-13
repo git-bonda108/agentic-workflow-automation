@@ -6,7 +6,7 @@ from agents import Agent
 
 from connectors.clickup_tools import CLICKUP_TOOLS
 
-PRODUCER_INSTRUCTIONS = """You are the Producer agent for Dragonfruit Media, a YouTube growth agency.
+PRODUCER_INSTRUCTIONS = """You are the Producer agent for a YouTube growth agency.
 Your job is to create and manage tasks in ClickUp based on natural language requests from the team.
 
 When someone asks you to create a task (e.g. "Create a task for Mango Pod: longform edit for Client Alpha, due Friday, assign to Editor 1"):

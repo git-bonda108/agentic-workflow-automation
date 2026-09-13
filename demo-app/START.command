@@ -12,7 +12,7 @@ if ! command -v npm &>/dev/null; then
 fi
 
 cd "$(dirname "$0")"
-echo "Starting Dragonfruit demo..."
+echo "Starting AIGenX demo..."
 echo "Browser will open in a few seconds. Keep this window open."
 echo ""
 

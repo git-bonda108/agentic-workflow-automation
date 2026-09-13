@@ -1,7 +1,7 @@
 """
 the media agency Demo Backend — Batch 4.
 Real ClickUp API for PR-4 and ED-3 (MCP wish list); rest mock.
-Uses CLICKUP_API_KEY from .env (DRAGONFRUIT root or backend/.env).
+Uses CLICKUP_API_KEY from .env (project root or backend/.env).
 """
 from pathlib import Path
 import json

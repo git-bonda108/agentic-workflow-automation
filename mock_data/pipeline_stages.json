@@ -1,5 +1,5 @@
 {
-  "pipeline_name": "Dragonfruit Production Pipeline (with Feedback)",
+  "pipeline_name": "Production Pipeline (with Feedback)",
   "phases": [
     {
       "phase": "Onboarding",

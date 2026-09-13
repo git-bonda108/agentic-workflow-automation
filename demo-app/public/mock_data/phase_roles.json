@@ -1,6 +1,6 @@
 {
   "source": "DFM Current Pipeline (XLSX) — RESPONSIBLE column normalized to 5 core roles",
-  "pipeline_name": "Dragonfruit Agentic AI Pipeline Demo - Plan, Reason and Act",
+  "pipeline_name": "AIGenX Agentic AI Pipeline Demo - Plan, Reason and Act",
   "core_roles": ["Producer", "Production Coordinator", "Creative Director", "Post-Production Manager", "Editor"],
   "phases": [
     {

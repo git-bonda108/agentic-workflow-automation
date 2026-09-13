@@ -17,9 +17,9 @@ Exposes `mock_data/*.json` as **tools** and **resources** so any MCP client (the
 
 **Run (stdio):**
 ```bash
-cd dragonfruit-workflow-agent
-python mcp_servers/dragonfruit_mock_server.py
-# or: uv run --with mcp python mcp_servers/dragonfruit_mock_server.py
+cd agentic-workflow-automation
+python mcp_servers/agency_mock_server.py
+# or: uv run --with mcp python mcp_servers/agency_mock_server.py
 ```
 
 **Use from OpenAI Agents SDK:** Add as `MCPServerStdio` with the command above, or run as HTTP and use `MCPServerStreamableHttp`.

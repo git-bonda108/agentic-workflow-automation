@@ -1,4 +1,4 @@
-# Dragonfruit — Agentic Pipeline Demo
+# AIGenX — Agentic Pipeline Demo
 
 **Gateway to the overall project.** This demo app shows the pipeline-first hierarchy: **Pipeline → Phase → Role → Opportunity**, with MCP integration, GIFs (agent trajectory), and dream allocation mapping.
 
@@ -43,4 +43,4 @@ See [Railway Docs](https://docs.railway.app/) for project setup and environment 
 
 - Vite + React 18 + TypeScript
 - React Router 6
-- CSS variables (Dragonfruit palette), Space Grotesk + Inter
+- CSS variables (AIGenX palette), Space Grotesk + Inter

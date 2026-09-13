@@ -10,7 +10,7 @@ The ClickUp MCP integration was tested from an MCP-enabled client against a live
    - **Conclusion:** MCP is authenticated and can read the ClickUp workspace.
 
 2. **`clickup_create_task`**  
-   - **Arguments:** `name: "Dragonfruit demo verification"`, a `list_id` resolved from the hierarchy, and a test description.  
+   - **Arguments:** `name: "AIGenX demo verification"`, a `list_id` resolved from the hierarchy, and a test description.  
    - **Result:** Success. Returned a `task_id` and `task_url` for the created task.  
    - **Conclusion:** Create-task flow works end-to-end via MCP.
 

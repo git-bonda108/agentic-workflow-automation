@@ -8,7 +8,7 @@ export function Layout() {
       <header className="layout-header">
         <div className="layout-header-left">
           <Link to="/" className="layout-logo">
-            Dragonfruit
+            AIGenX
           </Link>
           <span className="layout-tagline">Plan, Reason and Act</span>
         </div>

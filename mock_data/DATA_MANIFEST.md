@@ -1,4 +1,4 @@
-# Mock Data Manifest — Dragonfruit Demo App
+# Mock Data Manifest — AIGenX Demo App
 
 Single source of truth for the **pipeline-first** hierarchy and how the UI consumes each file.
 

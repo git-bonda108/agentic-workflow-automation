@@ -1,4 +1,4 @@
-# Dragonfruit — Mock Data for Proposal & MVP
+# AIGenX — Mock Data for Proposal & MVP
 
 Generated from the provided pipeline, time allocations, tool stack, and AI survey. Use for demos, dashboards, and scenario planning.
 
