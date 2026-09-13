@@ -1,5 +1,5 @@
 {
-  "source": "DFM AI Tool Wish List — tools grouped by core role for Phase → Role → Opportunities",
+  "source": "agency AI Tool Wish List — tools grouped by core role for Phase → Role → Opportunities",
   "role_tool_ids": {
     "Producer": ["PR-1", "PR-2", "PR-3", "PR-4"],
     "Production Coordinator": ["PR-3", "PR-4", "ED-3"],

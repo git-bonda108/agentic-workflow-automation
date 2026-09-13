@@ -1,5 +1,5 @@
 {
-  "source": "DFM AI Tool Wish List — Consultant Brief, March 2026",
+  "source": "agency AI Tool Wish List — Consultant Brief, March 2026",
   "high_priority": [
     {"id": "CD-1", "name": "Predictive Retention Scoring", "role": "Creative Director", "category": "Strategy", "description": "Script → predicted retention curve, drop-off flags, improvement suggestions."},
     {"id": "CD-2", "name": "Competitive Outlier Ideation Engine", "role": "Creative Director", "category": "Research", "description": "Monitor ~20 competitor channels; surface outlier content with theme/format/timing analysis."},

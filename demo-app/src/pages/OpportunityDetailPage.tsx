@@ -213,7 +213,7 @@ export function OpportunityDetailPage() {
       {flow?.hitl_gates && flow.hitl_gates.length > 0 && (
         <section className="opp-section">
           <h2 className="opp-section-title">HITL gates</h2>
-          <p className="opp-section-desc">Human-in-the-loop checkpoints per DFM wish list documentation. Agent pauses for confirmation at these stages.</p>
+          <p className="opp-section-desc">Human-in-the-loop checkpoints per agency wish list documentation. Agent pauses for confirmation at these stages.</p>
           <ul className="opp-hitl-list">
             {flow.hitl_gates.map((gate, i) => (
               <li key={i}>
@@ -376,7 +376,7 @@ export function OpportunityDetailPage() {
       {utilizationSummary && (
         <section className="opp-section opp-section-highlight">
           <h2 className="opp-section-title">Utilization & benefit (beyond sheet)</h2>
-          <p className="opp-section-desc">From DFM Current vs. Dream Time Allocations; delivered via agentic AI with HITL gates.</p>
+          <p className="opp-section-desc">From agency Current vs. Dream Time Allocations; delivered via agentic AI with HITL gates.</p>
           <p className="opp-util-intro">{utilizationSummary.benefit_beyond_sheet}</p>
           {utilizationSummary.quantified_gains && utilizationSummary.quantified_gains.length > 0 && (
             <table className="opp-util-table">
