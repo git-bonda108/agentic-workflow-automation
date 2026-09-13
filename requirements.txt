@@ -1,4 +1,4 @@
-# Dragonfruit Proposal & MVP
+# Agentic Workflow Automation — MVP
 openpyxl>=3.1.0
 python-docx>=1.0.0
 pandas>=2.0.0

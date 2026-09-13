@@ -121,7 +121,7 @@ NOTION_API_KEY=your_integration_secret
 
 ## 6. Mock Data MCP — add or edit data for testing
 
-The **Mock Data MCP server** (`mcp_servers/dragonfruit_mock_server.py`) serves data from the `mock_data/*.json` files. So:
+The **Mock Data MCP server** (`mcp_servers/agency_mock_server.py`) serves data from the `mock_data/*.json` files. So:
 
 - **To change what the “mock” context is** (e.g. pipeline, pods, time allocations, wish list):  
   Edit the JSON files in **`mock_data/`** and restart the Mock Data MCP server. Any MCP client (or the app, if we wire it to that MCP) will then see the updated data.
@@ -141,7 +141,7 @@ The **Mock Data MCP server** (`mcp_servers/dragonfruit_mock_server.py`) serves d
 ```bash
 # Python 3.10+ required
 pip install "mcp[cli]"
-python mcp_servers/dragonfruit_mock_server.py
+python mcp_servers/agency_mock_server.py
 ```
 
 Then point your MCP host at this server (stdio or HTTP) to query pipeline, allocations, pods, etc.
