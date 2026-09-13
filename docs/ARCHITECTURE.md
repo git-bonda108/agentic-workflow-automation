@@ -1,6 +1,6 @@
 # Architecture
 
-This document describes what is actually implemented in this repository — components, data flow, orchestration, and the design decisions visible in the code. The client is referred to generically as "the agency" (a YouTube growth agency); "Dragonfruit" is used only as the project codename baked into module and package names.
+This document describes what is actually implemented in this repository — components, data flow, orchestration, and the design decisions visible in the code. The client is referred to generically as "the agency" (a YouTube growth agency); "the media agency" is used only as the project codename baked into module and package names.
 
 ## Component map
 

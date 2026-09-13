@@ -1,4 +1,4 @@
-# Dragonfruit Demo — Script & Priority Focus
+# the media agency Demo — Script & Priority Focus
 
 ## What this demo is
 

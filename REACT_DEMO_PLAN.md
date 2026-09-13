@@ -40,9 +40,9 @@ The **`pipeline_demo/`** folder is the single source of truth for architecture, 
 
 ---
 
-## High-priority items (DFM wish list — all 8)
+## High-priority items (the agency wish list — all 8)
 
-From `wishlist_tools.json` / DFM-REFERENCE, **high_priority**:
+From `wishlist_tools.json` / the agency-REFERENCE, **high_priority**:
 
 | ID | Name | Role | Solution must include |
 |----|------|------|------------------------|

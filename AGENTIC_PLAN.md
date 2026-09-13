@@ -1,4 +1,4 @@
-# Dragonfruit Agentic MVP — Plan & Work Batches
+# the media agency Agentic MVP — Plan & Work Batches
 
 ## 1. Framework recommendation: **OpenAI Agents SDK**
 
@@ -35,7 +35,7 @@ We recommend **[OpenAI Agents SDK](https://openai.github.io/openai-agents-python
 | **Frame.io connector** | Stub: “get comments” for sentiment (MVP returns mock). | Real Frame.io API for ED-1 (sentiment). |
 | **Dashboard** | Streamlit app: run Producer (and optionally PC) agent; show current vs dream time; pipeline; **live agent run** with natural language → ClickUp (or mock). | Trace viewer link; multi-agent runs; human-in-the-loop UI. |
 | **Data in agents** | Agent receives context (e.g. “current tasks for Mango Pod”) via tools that call ClickUp (or mock). So **roles use data connected to ClickUp** (and later Slack/Notion). | Session memory; per-client context. |
-| **Mock data in MCP** | **Dragonfruit Mock Data MCP server** exposes `mock_data/*.json` as tools and resources (pipeline, time allocations, pods, tool stack, wishlist, AI survey). Agents can query this via MCP in demo mode or alongside real ClickUp/Notion/Slack MCPs. | Add more datasets or filter by role/client. |
+| **Mock data in MCP** | **the media agency Mock Data MCP server** exposes `mock_data/*.json` as tools and resources (pipeline, time allocations, pods, tool stack, wishlist, AI survey). Agents can query this via MCP in demo mode or alongside real ClickUp/Notion/Slack MCPs. | Add more datasets or filter by role/client. |
 | **Human-in-the-loop** | Optional approval for “create task” / “send Slack” before execution (SDK supports this). | Full approval UI in dashboard. |
 
 ---

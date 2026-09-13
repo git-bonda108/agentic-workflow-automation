@@ -1,4 +1,4 @@
-# Dragonfruit Workflow Agent
+# Agentic Workflow Automation
 
 Agentic workflow automation for a video-production pipeline: a role-based agent that turns natural-language requests into ClickUp tasks behind human-in-the-loop gates, plus two demo surfaces (Streamlit and React) and an MCP server that serves the pipeline's domain data to any MCP client.
 
@@ -53,7 +53,7 @@ Deeper documentation:
 Requires Python 3.10+ for the OpenAI Agents SDK (the dashboard itself runs on 3.9 with mock results).
 
 ```bash
-git clone <this-repo> && cd dragonfruit-workflow-agent
+git clone <this-repo> && cd agentic-workflow-automation
 python3 -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 streamlit run mvp_app.py
@@ -122,5 +122,5 @@ All configuration is by environment variable, loaded from a `.env` file at the r
 | `mcp_servers/` | FastMCP server exposing `mock_data/` as MCP tools and resources |
 | `demo-app/` | React 18 + Vite pipeline-browser demo; `backend/` is the FastAPI HITL agent API |
 | `mock_data/`, `MCP SYNTHESIZED DATA/` | Domain JSON: pipeline stages, roles, pods, tool stack, wish list; synthetic MCP-style responses |
-| `pipeline_demo/`, `proposal_contract/`, `DFM -REFERENCE/` | Engagement artifacts: architecture/proposal PDFs and HTML, source reference documents |
+| `pipeline_demo/`, `proposal_contract/`, `the agency -REFERENCE/` | Engagement artifacts: architecture/proposal PDFs and HTML, source reference documents |
 | `AGENTIC_PLAN.md`, `HUMAN_IN_THE_LOOP_GATES.md`, `MCP_SERVERS_AND_DATA.md` | Planning docs: framework choice and batches, HITL gate inventory, data/MCP topology |

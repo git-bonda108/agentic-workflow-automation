@@ -629,7 +629,7 @@ elif nav == "📋 Proposal Summary":
     st.markdown("""
     <div class="df-hero">
         <h1>Proposal Summary</h1>
-        <p>Full document: proposal_contract/Dragonfruit_Proposal_EOY2026.html (export to PDF).</p>
+        
     </div>
     """, unsafe_allow_html=True)
 

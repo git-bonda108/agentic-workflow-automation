@@ -43,7 +43,7 @@ Goal: **All 8 high-priority tools** in one demo. Client feels **in their current
 ## Batch 4 — Polish + MCP callouts + “Your environment” feel ✅
 
 **Deliverables:**
-- **Color palette:** Centralized in `COLOR_PALETTE.md` and CSS variables + `PALETTE` in app (aligned with Dragonfruit / AI Gen X proposal).
+- **Color palette:** Centralized in `COLOR_PALETTE.md` and CSS variables + `PALETTE` in app (aligned with the media agency / AI Gen X proposal).
 - Sidebar: **Connections** line with status badges (Mock Data ✅, ClickUp/Slack/Frame.io/Notion ✅ or 🔶).
 - Footer on every page: “Your pipeline · Your pods · Your wish list · Running faster.”
 - Copy: Tabs and captions reference “your data” or “your workflow” where relevant.

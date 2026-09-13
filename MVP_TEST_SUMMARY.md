@@ -1,6 +1,6 @@
 # MVP Demo — Test Summary
 
-**Status:** MVP demo is complete and tested end-to-end. UI overhaul (March 2026): premium Dragonfruit styling, hero sections, connection pills, pill-style tabs, card-style metrics, unified footer.
+**Status:** MVP demo is complete and tested end-to-end. UI overhaul (March 2026): premium the media agency styling, hero sections, connection pills, pill-style tabs, card-style metrics, unified footer.
 
 ## Fixes applied during test
 
@@ -25,7 +25,7 @@ python3 -m streamlit run mvp_app.py --server.port 8502
 
 | Area | Result |
 |------|--------|
-| **App load** | ✅ Page loads; title "Dragonfruit AI Proposal & MVP" |
+| **App load** | ✅ Page loads; title "the media agency AI Proposal & MVP" |
 | **Sidebar** | ✅ Navigate (Run Demo, Time Allocations, Pipeline, Proposal Summary, Producer Agent, Wish List); Connections line (Mock Data ✅, ClickUp/Slack/Frame.io/Notion 🔶); links to Demo script, Plan, MCP & data, HITL gates |
 | **Run Demo — Overview** | ✅ Hero "Your environment. Faster."; metrics (clients per pod, target EOY 2026, Producer ClickUp time); pipeline/pods copy; Connections (MCP/APIs) table |
 | **Run Demo — 9 tabs** | ✅ Overview, CD-1 Retention, CD-2 Outlier Ideation, CD-3 Packaging, CD-4 A/B Monitor, ED-1 Sentiment, ED-2 QC, ED-3 Assignment, PR-4 ClickUp |

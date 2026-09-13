@@ -1,8 +1,8 @@
-# Dragonfruit MCP Servers
+# the media agency MCP Servers
 
 MCP servers used by the agentic MVP. Mock data is exposed so agents can query pipeline, time allocations, pods, and tooling **without** calling live APIs.
 
-## 1. Dragonfruit Mock Data Server
+## 1. the media agency Mock Data Server
 
 Exposes `mock_data/*.json` as **tools** and **resources** so any MCP client (the OpenAI Agents SDK, a desktop MCP client, etc.) can read:
 

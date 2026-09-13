@@ -1,8 +1,8 @@
-# Dragonfruit — Proposal, Mock Data & MVP
+# the media agency — Proposal, Mock Data & MVP
 
 ## What’s here
 
-- **Proposal:** `proposal_contract/Dragonfruit_Proposal_EOY2026_Final.html` — full proposal (architecture, AI toolkit, roadmap, costs) aligned to the brief and evaluation criteria.
+- **Proposal:** `proposal_contract/the media agency_Proposal_EOY2026_Final.html` — full proposal (architecture, AI toolkit, roadmap, costs) aligned to the brief and evaluation criteria.
 - **Agentic plan:** `AGENTIC_PLAN.md` — framework choice (OpenAI Agents SDK), connectors, role agents, and **work batches** for parallel execution.
 - **Mock data:** `mock_data/*.json` — pipeline stages, time allocations, tool stack, pods/clients, AI survey summary, wish list tools.
 - **MVP app:** Streamlit dashboard + **Producer agent** (OpenAI Agents SDK + ClickUp connector). Roles use data connected to ClickUp (real or demo).
@@ -15,7 +15,7 @@
 **Producer agent (OpenAI Agents SDK):** requires **Python 3.10+**. Create the venv with `python3.10` or `python3.11` if your default is 3.9.
 
 ```bash
-cd dragonfruit-workflow-agent
+cd agentic-workflow-automation
 python3 -m venv .venv   # use python3.10+ for agent support
 source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
