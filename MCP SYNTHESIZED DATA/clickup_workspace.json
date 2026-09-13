@@ -3,11 +3,11 @@
     "source": "clickup_mcp",
     "tool": "get_workspace",
     "mode": "mock",
-    "description": "DFM ClickUp workspace structure \u2014 Business Plus Plan, 104 members"
+    "description": "agency ClickUp workspace structure \u2014 Business Plus Plan, 104 members"
   },
   "workspace": {
     "id": "9012345678",
-    "name": "Dragonfruit",
+    "name": "AIGenX",
     "plan": "business_plus",
     "members_count": 104,
     "color": "#FF6B35"
