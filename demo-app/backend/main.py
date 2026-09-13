@@ -1,5 +1,5 @@
 """
-Dragonfruit Demo Backend — Batch 4.
+the media agency Demo Backend — Batch 4.
 Real ClickUp API for PR-4 and ED-3 (MCP wish list); rest mock.
 Uses CLICKUP_API_KEY from .env (DRAGONFRUIT root or backend/.env).
 """
@@ -28,7 +28,7 @@ except Exception:
     def clickup_get_tasks(*args, **kwargs):
         return None
 
-app = FastAPI(title="Dragonfruit Demo API", version="1.0")
+app = FastAPI(title="the media agency Demo API", version="1.0")
 
 app.add_middleware(
     CORSMiddleware,
@@ -180,7 +180,7 @@ def run_demo(
             list_id = get_first_list_id()
             if list_id:
                 name = (task_name or "Demo: Script review by Fri")[:255]
-                task = clickup_create_task(list_id, name, "Created via Dragonfruit PR-4 demo (real ClickUp API).")
+                task = clickup_create_task(list_id, name, "Created via the media agency PR-4 demo (real ClickUp API).")
                 if task:
                     url = task.get("url") or f"https://app.clickup.com/t/{task.get('id', '')}"
                     return DemoResponse(
@@ -246,7 +246,7 @@ def run_demo(
 
 @app.get("/health")
 def health() -> dict:
-    return {"status": "ok", "service": "dragonfruit-demo-api", "clickup_configured": clickup_configured()}
+    return {"status": "ok", "service": "agency-demo-api", "clickup_configured": clickup_configured()}
 
 
 # --- Agent: natural language → LLM → ClickUp (plan, reason, act) ---
@@ -327,7 +327,7 @@ def agent_confirm_create(body: AgentConfirmCreateRequest = Body(...)) -> AgentCr
     task_name = (body.task_name or "Task from agent")[:255]
     tags = list(body.tags or [])[:10]
     deps = (body.dependencies or "").strip()
-    description = f"Created via Dragonfruit Agentic AI Pipeline Demo — Plan, Reason and Act.\n\nRequest: {prompt[:500]}"
+    description = f"Created via the media agency Agentic AI Pipeline Demo — Plan, Reason and Act.\n\nRequest: {prompt[:500]}"
     if deps:
         description += f"\n\nDependencies: {deps}"
 
@@ -386,7 +386,7 @@ def get_clickup_workspace() -> dict:
             return json.loads(p.read_text(encoding="utf-8"))
         except Exception:
             pass
-    return {"_meta": {"source": "none"}, "workspace": {"name": "Dragonfruit Media"}, "spaces": []}
+    return {"_meta": {"source": "none"}, "workspace": {"name": "the media agency Media"}, "spaces": []}
 
 
 @app.get("/api/clickup/synthesized/{name}")

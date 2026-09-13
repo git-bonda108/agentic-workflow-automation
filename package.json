@@ -1,5 +1,5 @@
 {
-  "name": "dragonfruit",
+  "name": "agentic-workflow-automation",
   "private": true,
   "scripts": {
     "start": "cd demo-app && npm run dev",

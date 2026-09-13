@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Dragonfruit Media — Proposal & MVP Demo
+the media agency Media — Proposal & MVP Demo
 Dashboard: time allocations, pipeline, proposal summary, Producer agent (OpenAI Agents SDK + ClickUp).
 Run: streamlit run mvp_app.py
 """
@@ -26,7 +26,7 @@ import streamlit as st
 BASE = Path(__file__).resolve().parent
 MOCK = BASE / "mock_data"
 
-# Chart colors — Dragonfruit website–inspired (dragonfruitmedia.co)
+# Chart colors — the media agency website–inspired (agencymedia.co)
 PALETTE = {
     "primary": "#E85D75",
     "accent": "#E85D75",
@@ -46,13 +46,13 @@ def load_json(name: str):
 
 # Page config
 st.set_page_config(
-    page_title="Dragonfruit AI Proposal & MVP",
+    page_title="the media agency AI Proposal & MVP",
     page_icon="🥭",
     layout="wide",
     initial_sidebar_state="expanded",
 )
 
-# Custom CSS — Dragonfruit Media: premium, divine, full Streamlit polish
+# Custom CSS — the media agency Media: premium, divine, full Streamlit polish
 st.markdown("""
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -153,7 +153,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Sidebar — premium, clear hierarchy
-st.sidebar.markdown("### 🥭 Dragonfruit Media")
+st.sidebar.markdown("### 🥭 the media agency Media")
 st.sidebar.markdown("**#1 Global YouTube Agency**")
 st.sidebar.caption("AI & Automation · EOY 2026")
 st.sidebar.markdown("Scale **4 → 7** clients per pod")
@@ -277,7 +277,7 @@ if nav == "🎬 Run Demo":
         st.markdown(f"""
         | System | Status | Notes |
         |--------|--------|-------|
-        | **Mock Data** | ✅ | Pipeline, pods, wish list from `mock_data/` (same as Dragonfruit MCP). |
+        | **Mock Data** | ✅ | Pipeline, pods, wish list from `mock_data/` (same as the media agency MCP). |
         | **ClickUp** | {clickup_status} | PR-4 creates real tasks when `CLICKUP_*` in `.env`. |
         | **Slack** | {slack_status} | List channels / send when `SLACK_BOT_TOKEN` in `.env`. |
         | **Frame.io** | {frameio_status} | ED-1 sentiment when `FRAMEIO_ACCESS_TOKEN` set. |

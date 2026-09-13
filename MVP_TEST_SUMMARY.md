@@ -9,7 +9,7 @@
 ## How to run locally
 
 ```bash
-cd dragonfruit-workflow-agent
+cd agentic-workflow-automation
 python3 -m streamlit run mvp_app.py
 ```
 

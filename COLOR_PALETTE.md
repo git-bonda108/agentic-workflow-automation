@@ -1,4 +1,4 @@
-# Dragonfruit MVP — Color Palette
+# Workflow MVP — Color Palette
 
 Inspired by the client agency’s brand (a YouTube growth agency): premium, clean, bold.
 

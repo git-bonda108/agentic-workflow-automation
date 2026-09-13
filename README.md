@@ -9,7 +9,7 @@ The project was built as a working proposal-and-MVP for a YouTube growth agency 
 - **Orchestration pattern: single-agent tool loop with human-in-the-loop gates.** One role agent (the Producer agent, built on the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/)) loops over four ClickUp function tools until it produces a final answer (`role_agents/producer_agent.py`, `connectors/clickup_tools.py`). The React demo's backend implements the same capability as a deterministic three-step pipeline: **parse → human confirm → act** (`demo-app/backend/main.py`). There is no multi-agent supervisor or handoff in the code; additional role agents are planned in `AGENTIC_PLAN.md` but not implemented.
 - **Models.** The Producer agent uses the Agents SDK's default model; the React demo backend calls `gpt-4o-mini` for prompt parsing, with a rule-based regex parser as a no-key fallback (`demo-app/backend/agent_llm.py`).
 - **Memory / session state.** Stateless per run. The Streamlit app holds pending task proposals in `st.session_state` so a human can confirm or cancel across reruns; the React app keeps UI state client-side. There is no database or persistent memory store.
-- **Retrieval.** None (no vector store). Domain context is structured JSON under `mock_data/`, reachable three ways: loaded directly by the UIs, exposed as agent function tools, and served as MCP tools/resources by `mcp_servers/dragonfruit_mock_server.py` (FastMCP, 6 tools + 7 `dragonfruit://` resources).
+- **Retrieval.** None (no vector store). Domain context is structured JSON under `mock_data/`, reachable three ways: loaded directly by the UIs, exposed as agent function tools, and served as MCP tools/resources by `mcp_servers/agency_mock_server.py` (FastMCP, 6 tools + 7 `agency://` resources).
 - **Live integrations.** ClickUp REST API v2 (task create/list/update — implemented and key-gated), Slack Web API (channel list / post message — implemented and key-gated), Frame.io and Notion (status checks only; no client code yet).
 
 ```mermaid
@@ -86,7 +86,7 @@ pip install -r backend/requirements.txt
 npm run backend        # uvicorn on http://localhost:8000
 ```
 
-`GET http://localhost:8000/health` returns `{"status": "ok", "service": "dragonfruit-demo-api", "clickup_configured": false}` until a ClickUp key is set. Railway deployment notes are in `demo-app/RAILWAY.md`.
+`GET http://localhost:8000/health` returns `{"status": "ok", "service": "agency-demo-api", "clickup_configured": false}` until a ClickUp key is set. Railway deployment notes are in `demo-app/RAILWAY.md`.
 
 ### 3. Mock-data MCP server
 
@@ -94,7 +94,7 @@ Serves the pipeline, time allocations, pods, tool stack, wish list, and survey s
 
 ```bash
 pip install "mcp[cli]"
-python mcp_servers/dragonfruit_mock_server.py
+python mcp_servers/agency_mock_server.py
 ```
 
 See `mcp_servers/README.md` for wiring it into an agent or an MCP-enabled client.

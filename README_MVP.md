@@ -8,7 +8,7 @@
 - **MVP app:** Streamlit dashboard + **Producer agent** (OpenAI Agents SDK + ClickUp connector). Roles use data connected to ClickUp (real or demo).
 - **Connectors:** `connectors/` — ClickUp (real/demo); Slack/Notion/Frame.io in later batches.
 - **Role agents:** `role_agents/` — Producer agent (more roles in Batches 2–3).
-- **Mock data in MCP:** `mcp_servers/dragonfruit_mock_server.py` — MCP server that exposes `mock_data/*.json` as tools and resources so agents (and any MCP client) can query pipeline, time allocations, pods, tool stack, wishlist, and AI survey.
+- **Mock data in MCP:** `mcp_servers/agency_mock_server.py` — MCP server that exposes `mock_data/*.json` as tools and resources so agents (and any MCP client) can query pipeline, time allocations, pods, tool stack, wishlist, and AI survey.
 
 ## Setup
 
@@ -37,7 +37,7 @@ Expose pipeline, time allocations, pods, tool stack, wishlist, and AI survey to 
 ```bash
 source .venv/bin/activate
 pip install "mcp[cli]"
-python mcp_servers/dragonfruit_mock_server.py
+python mcp_servers/agency_mock_server.py
 ```
 
 See `mcp_servers/README.md` for wiring into agents and external MCPs (ClickUp, Notion, Slack, Frame.io).
