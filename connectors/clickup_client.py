@@ -1,5 +1,5 @@
 """
-ClickUp connector for Dragonfruit agents.
+ClickUp connector for the workflow agents.
 Uses CLICKUP_API_KEY and CLICKUP_TEAM_ID when set; otherwise returns mock data (demo mode).
 """
 from __future__ import annotations
@@ -37,7 +37,7 @@ def _headers() -> dict:
 def clickup_get_workspaces() -> list[dict]:
     """Return workspaces (teams) for the configured account. Demo: single mock workspace."""
     if not is_clickup_configured():
-        return [{"id": _TEAM_ID or "mock_team", "name": "Dragonfruit (demo)"}]
+        return [{"id": _TEAM_ID or "mock_team", "name": "Workflow Team (demo)"}]
     with httpx.Client(timeout=15) as client:
         r = client.get(f"{CLICKUP_API_BASE}/team", headers=_headers())
         r.raise_for_status()

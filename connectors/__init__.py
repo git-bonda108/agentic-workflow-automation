@@ -1,4 +1,4 @@
-# Dragonfruit connectors: ClickUp, Slack, Notion, Frame.io.
+# Workflow connectors: ClickUp, Slack, Notion, Frame.io.
 # Used by OpenAI Agents SDK as function tools and by the Streamlit app for connection status.
 
 import os
