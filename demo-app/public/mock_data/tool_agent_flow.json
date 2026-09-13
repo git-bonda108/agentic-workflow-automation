@@ -1,7 +1,7 @@
 {
   "source": "agency reference wish list + dream allocation; HITL gates and agent flow per tool",
   "utilization_summary": {
-    "source_sheet": "DFM_Current_vs_Dream_Time_Allocations.xlsx",
+    "source_sheet": "agency_time_allocations_reference.xlsx",
     "benefit_beyond_sheet": "Agentic AI delivers the dream allocation by automating coordination and manual checks while keeping humans in the loop. HITL gates ensure quality and control at each tool.",
     "role_highlights": [
       "Producers: Coordination 74.5% → 41%. Freed time → Client Strategy 10%, Creative QC 12%, Innovation Lab 10%.",
